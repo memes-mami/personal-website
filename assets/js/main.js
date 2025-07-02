@@ -27,13 +27,60 @@
   /**
    * Hide mobile nav on same-page/hash links
    */
-  document.querySelectorAll('#navmenu a').forEach(navLink => {
-    navLink.addEventListener('click', () => {
-      if (document.querySelector('#header.header-show')) {
-        headerToggle();
-      }
+document.querySelectorAll('#navmenu a').forEach(navLink => {
+  navLink.addEventListener('click', (e) => {
+    const href = navLink.getAttribute('href');
+
+    if (href === '#hero') {
+      e.preventDefault(); // prevent default scroll
+      goBack(); // show all default sections again
+      setTimeout(() => {
+        document.querySelector('#hero')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+
+    if (document.querySelector('#header.header-show')) {
+      headerToggle();
+    }
+  });
+});
+
+
+  document.querySelectorAll('.skill-card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('active');
     });
   });
+
+const switcher = document.getElementById('theme-switch');
+
+function applyDarkTheme(enable) {
+  if (enable) {
+    document.body.classList.add('dark');
+    document.head.appendChild(darkCSS);
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.body.classList.remove('dark');
+    document.getElementById('dark-css')?.remove();
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+// Create and load dark CSS
+const darkCSS = document.createElement('link');
+darkCSS.rel = 'stylesheet';
+darkCSS.href = 'assets/css/dark.css';
+darkCSS.id = 'dark-css';
+
+// Load theme on page load
+if (localStorage.getItem('theme') === 'dark') {
+  applyDarkTheme(true);
+  switcher.checked = true;
+}
+
+switcher.addEventListener('change', function () {
+  applyDarkTheme(this.checked);
+});
 
   /**
    * Toggle dropdowns in mobile nav (e.g., "More" menu)
@@ -51,9 +98,14 @@
    * Preloader
    */
   const preloader = document.querySelector('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => preloader.remove());
-  }
+if (preloader) {
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      preloader.classList.add('hidden');
+    }, 700); // Delay to see the loader animate
+  });
+}
+
 
   /**
    * Scroll top button
