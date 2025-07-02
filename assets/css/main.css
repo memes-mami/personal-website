@@ -648,7 +648,6 @@ section,
   }
 }
 
-}
 
 /*--------------------------------------------------------------
 # About Section
@@ -713,41 +712,261 @@ section,
   font-size: 14px;
 }
 
-/*--------------------------------------------------------------
-# Skills Section
---------------------------------------------------------------*/
-.skills .progress {
-  height: 60px;
-  display: block;
-  background: none;
-  border-radius: 0;
+/*skills---------------------------------------*/
+/* Skill Grid Container */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr); /* exactly 8 per row */
+  gap: 24px;
+  justify-items: center;
+  margin-top: 40px;
 }
 
-.skills .progress .skill {
-  color: var(--heading-color);
-  padding: 0;
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
-  display: block;
-  font-weight: 600;
+@media (max-width: 992px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* Each Skill Icon Box */
+.skill-icon {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.07); /* Translucent */
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  z-index: 1;
+
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.25),
+    0 8px 16px rgba(0, 0, 0, 0.15),
+    0 12px 24px rgba(0, 0, 0, 0.10);
+}
+
+/* Enlarged Image Styling */
+.skill-icon img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* Optional hover zoom effect */
+.skill-icon:hover img {
+  transform: scale(1.05);
+}
+
+/* Hover Lift Effect + Neon Glow */
+.skill-icon:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 12px rgba(0, 255, 255, 0.7),
+    0 0 24px rgba(0, 255, 255, 0.5),
+    0 0 36px rgba(0, 255, 255, 0.4),
+    0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Neon Underglow */
+.skill-icon::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 10px;
+  background: rgba(0, 255, 255, 0.6);
+  border-radius: 50%;
+  filter: blur(12px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+/* Show underglow on hover */
+.skill-icon:hover::after {
+  opacity: 1;
+}
+
+/* Tooltip Box */
+.skill-icon::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -42px;
+  background: rgba(0, 0, 0, 0.88);
+  color: #fff;
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
   font-family: var(--heading-font);
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.skills .progress .skill .val {
-  float: right;
-  font-style: normal;
+/* Tooltip Arrow */
+.skill-icon::before,
+.skill-icon::after {
+  pointer-events: none;
 }
 
-.skills .progress-bar-wrap {
-  background: color-mix(in srgb, var(--default-color), transparent 90%);
-  height: 10px;
+.skill-icon::after {
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgba(0, 0, 0, 0.88) transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.skills .progress-bar {
-  width: 1px;
-  height: 10px;
-  transition: 0.9s;
-  background-color: var(--accent-color);
+/* Show Tooltip on Hover */
+.skill-icon:hover::before,
+.skill-icon:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Skill-Specific Neon Hover Glows */
+.skill-icon.python:hover {
+  box-shadow: 0 0 20px #ffd43b, 0 0 40px #ffd43b;
+}
+.skill-icon.python:hover::after {
+  background: #ffd43b;
+}
+
+.skill-icon.cpp:hover {
+  box-shadow: 0 0 20px #00599c, 0 0 40px #00599c;
+}
+.skill-icon.cpp:hover::after {
+  background: #00599c;
+}
+
+.skill-icon.java:hover {
+  box-shadow: 0 0 20px #5382a1, 0 0 40px #5382a1;
+}
+.skill-icon.java:hover::after {
+  background: #5382a1;
+}
+
+.skill-icon.matlab:hover {
+  box-shadow: 0 0 20px #ff5b00, 0 0 40px #ff5b00;
+}
+.skill-icon.matlab:hover::after {
+  background: #ff5b00;
+}
+
+.skill-icon.html:hover {
+  box-shadow: 0 0 20px #e34c26, 0 0 40px #e34c26;
+}
+.skill-icon.html:hover::after {
+  background: #e34c26;
+}
+
+.skill-icon.css:hover {
+  box-shadow: 0 0 20px #264de4, 0 0 40px #264de4;
+}
+.skill-icon.css:hover::after {
+  background: #264de4;
+}
+
+.skill-icon.javascript:hover {
+  box-shadow: 0 0 20px #f0db4f, 0 0 40px #f0db4f;
+}
+.skill-icon.javascript:hover::after {
+  background: #f0db4f;
+}
+
+.skill-icon.flask:hover {
+  box-shadow: 0 0 20px #000000, 0 0 40px #000000;
+}
+.skill-icon.flask:hover::after {
+  background: #000000;
+}
+
+.skill-icon.pytorch:hover {
+  box-shadow: 0 0 20px #ee4c2c, 0 0 40px #ee4c2c;
+}
+.skill-icon.pytorch:hover::after {
+  background: #ee4c2c;
+}
+
+.skill-icon.tensorflow:hover {
+  box-shadow: 0 0 20px #ff6f00, 0 0 40px #ff6f00;
+}
+.skill-icon.tensorflow:hover::after {
+  background: #ff6f00;
+}
+
+.skill-icon.powerbi:hover {
+  box-shadow: 0 0 20px #f2c811, 0 0 40px #f2c811;
+}
+.skill-icon.powerbi:hover::after {
+  background: #f2c811;
+}
+
+.skill-icon.aws:hover {
+  box-shadow: 0 0 20px #ff9900, 0 0 40px #ff9900;
+}
+.skill-icon.aws:hover::after {
+  background: #ff9900;
+}
+
+.skill-icon.azure:hover {
+  box-shadow: 0 0 20px #007fff, 0 0 40px #007fff;
+}
+.skill-icon.azure:hover::after {
+  background: #007fff;
+}
+
+.skill-icon.kubernetes:hover {
+  box-shadow: 0 0 20px #326ce5, 0 0 40px #326ce5;
+}
+.skill-icon.kubernetes:hover::after {
+  background: #326ce5;
+}
+
+.skill-icon.docker:hover {
+  box-shadow: 0 0 20px #0db7ed, 0 0 40px #0db7ed;
+}
+.skill-icon.docker:hover::after {
+  background: #0db7ed;
+}
+
+.skill-icon.git:hover {
+  box-shadow: 0 0 20px #f1502f, 0 0 40px #f1502f;
+}
+.skill-icon.git:hover::after {
+  background: #f1502f;
+}
+
+.skill-icon.vscode:hover {
+  box-shadow: 0 0 20px #007acc, 0 0 40px #007acc;
+}
+.skill-icon.vscode:hover::after {
+  background: #007acc;
+}
+
+.skill-icon.dbms:hover {
+  box-shadow: 0 0 20px #4682b4, 0 0 40px #4682b4;
+}
+.skill-icon.dbms:hover::after {
+  background: #4682b4; /* Steel Blue */
 }
 
 /*--------------------------------------------------------------

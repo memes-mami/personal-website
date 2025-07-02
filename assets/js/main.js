@@ -1,16 +1,16 @@
 /**
-* Template Name: iPortfolio
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Updated: Jun 29 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+ * Template Name: iPortfolio
+ * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+ * Updated: Jul 2 2025
+ * Author: BootstrapMade.com
+ * Modified By: Vishnu Teja
+ */
 
-(function() {
+(function () {
   "use strict";
 
   /**
-   * Header toggle
+   * Header toggle for mobile nav
    */
   const headerToggleBtn = document.querySelector('.header-toggle');
 
@@ -19,25 +19,27 @@
     headerToggleBtn.classList.toggle('bi-list');
     headerToggleBtn.classList.toggle('bi-x');
   }
-  headerToggleBtn.addEventListener('click', headerToggle);
+
+  if (headerToggleBtn) {
+    headerToggleBtn.addEventListener('click', headerToggle);
+  }
 
   /**
    * Hide mobile nav on same-page/hash links
    */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.header-show')) {
+  document.querySelectorAll('#navmenu a').forEach(navLink => {
+    navLink.addEventListener('click', () => {
+      if (document.querySelector('#header.header-show')) {
         headerToggle();
       }
     });
-
   });
 
   /**
-   * Toggle mobile nav dropdowns
+   * Toggle dropdowns in mobile nav (e.g., "More" menu)
    */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
+  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(dropdownToggle => {
+    dropdownToggle.addEventListener('click', function (e) {
       e.preventDefault();
       this.parentNode.classList.toggle('active');
       this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
@@ -50,34 +52,32 @@
    */
   const preloader = document.querySelector('#preloader');
   if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
+    window.addEventListener('load', () => preloader.remove());
   }
 
   /**
    * Scroll top button
    */
-  let scrollTop = document.querySelector('.scroll-top');
+  const scrollTop = document.querySelector('.scroll-top');
 
   function toggleScrollTop() {
     if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+      scrollTop.classList.toggle('active', window.scrollY > 100);
     }
   }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+
+  if (scrollTop) {
+    scrollTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-  });
+  }
 
   window.addEventListener('load', toggleScrollTop);
   document.addEventListener('scroll', toggleScrollTop);
 
   /**
-   * Animation on scroll function and init
+   * AOS animation initialization
    */
   function aosInit() {
     AOS.init({
@@ -87,15 +87,15 @@
       mirror: false
     });
   }
+
   window.addEventListener('load', aosInit);
 
   /**
-   * Init typed.js
+   * Typed.js initialization
    */
   const selectTyped = document.querySelector('.typed');
   if (selectTyped) {
-    let typed_strings = selectTyped.getAttribute('data-typed-items');
-    typed_strings = typed_strings.split(',');
+    let typed_strings = selectTyped.getAttribute('data-typed-items').split(',');
     new Typed('.typed', {
       strings: typed_strings,
       loop: true,
@@ -106,76 +106,63 @@
   }
 
   /**
-   * Initiate Pure Counter
+   * PureCounter init
    */
   new PureCounter();
 
   /**
-   * Animate the skills items on reveal
+   * Animate skill progress bars when in view
    */
-  let skillsAnimation = document.querySelectorAll('.skills-animation');
-  skillsAnimation.forEach((item) => {
+  document.querySelectorAll('.skills-animation').forEach((skillBlock) => {
     new Waypoint({
-      element: item,
+      element: skillBlock,
       offset: '80%',
-      handler: function(direction) {
-        let progress = item.querySelectorAll('.progress .progress-bar');
-        progress.forEach(el => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%';
+      handler: function () {
+        skillBlock.querySelectorAll('.progress .progress-bar').forEach(bar => {
+          bar.style.width = bar.getAttribute('aria-valuenow') + '%';
         });
       }
     });
   });
 
   /**
-   * Initiate glightbox
+   * Lightbox for images/videos
    */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
+  GLightbox({ selector: '.glightbox' });
 
   /**
-   * Init isotope layout and filters
+   * Isotope layout for portfolio filters
    */
-  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
+  document.querySelectorAll('.isotope-layout').forEach(isotopeItem => {
     let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
     let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
     let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
 
-    let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+    imagesLoaded(isotopeItem.querySelector('.isotope-container'), () => {
+      let iso = new Isotope(isotopeItem.querySelector('.isotope-container'), {
         itemSelector: '.isotope-item',
         layoutMode: layout,
         filter: filter,
         sortBy: sort
       });
-    });
 
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
-        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-        this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
+      isotopeItem.querySelectorAll('.isotope-filters li').forEach(filterBtn => {
+        filterBtn.addEventListener('click', function () {
+          isotopeItem.querySelector('.filter-active')?.classList.remove('filter-active');
+          this.classList.add('filter-active');
+          iso.arrange({ filter: this.getAttribute('data-filter') });
+          aosInit(); // Refresh AOS on filter
         });
-        if (typeof aosInit === 'function') {
-          aosInit();
-        }
-      }, false);
+      });
     });
-
   });
 
   /**
-   * Init swiper sliders
+   * Swiper slider initialization
    */
   function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
-
+    document.querySelectorAll(".init-swiper").forEach(swiperElement => {
+      const config = JSON.parse(swiperElement.querySelector(".swiper-config").innerHTML.trim());
       if (swiperElement.classList.contains("swiper-tab")) {
         initSwiperWithCustomPagination(swiperElement, config);
       } else {
@@ -187,42 +174,97 @@
   window.addEventListener("load", initSwiper);
 
   /**
-   * Correct scrolling position upon page load for URLs containing hash links.
+   * Smooth scroll to section on page load (if URL has hash)
    */
-  window.addEventListener('load', function(e) {
-    if (window.location.hash) {
-      if (document.querySelector(window.location.hash)) {
-        setTimeout(() => {
-          let section = document.querySelector(window.location.hash);
-          let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
-          window.scrollTo({
-            top: section.offsetTop - parseInt(scrollMarginTop),
-            behavior: 'smooth'
-          });
-        }, 100);
-      }
+  window.addEventListener('load', () => {
+    if (window.location.hash && document.querySelector(window.location.hash)) {
+      setTimeout(() => {
+        const section = document.querySelector(window.location.hash);
+        const scrollMarginTop = parseInt(getComputedStyle(section).scrollMarginTop);
+        window.scrollTo({ top: section.offsetTop - scrollMarginTop, behavior: 'smooth' });
+      }, 100);
     }
   });
 
   /**
-   * Navmenu Scrollspy
+   * Show custom section from "More" dropdown (e.g., achievements, certifications)
    */
-  let navmenulinks = document.querySelectorAll('.navmenu a');
+  function showCustomSection(sectionId) {
+    const defaultSections = ['hero', 'about', 'skills', 'resume', 'services', 'contact', 'stats'];
+    const customSections = ['achievements-section', 'certifications-section', 'project-demos-section'];
+    const footer = document.querySelector('footer');
+
+    // Hide all sections and footer
+    [...defaultSections, ...customSections].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+    if (footer) footer.style.display = 'none';
+
+    // Show selected custom section
+    const target = document.getElementById(`${sectionId}-section`);
+    if (target) target.style.display = 'block';
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /**
+   * Back button to return from custom section to main sections
+   */
+  window.goBack = function () {
+    const defaultSections = ['hero', 'about', 'skills', 'resume', 'services', 'contact', 'stats'];
+    const customSections = ['achievements-section', 'certifications-section', 'project-demos-section'];
+    const footer = document.querySelector('footer');
+
+    // Hide custom sections
+    customSections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+
+    // Show default sections and footer
+    defaultSections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'block';
+    });
+
+    if (footer) footer.style.display = 'block';
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  /**
+   * Attach section toggle behavior to dropdown links with `data-section`
+   */
+  document.querySelectorAll('a[data-section]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const section = this.getAttribute('data-section');
+      showCustomSection(section);
+    });
+  });
+
+  /**
+   * Scrollspy - highlight active menu based on scroll
+   */
+  const navmenulinks = document.querySelectorAll('.navmenu a');
 
   function navmenuScrollspy() {
-    navmenulinks.forEach(navmenulink => {
-      if (!navmenulink.hash) return;
-      let section = document.querySelector(navmenulink.hash);
+    const position = window.scrollY + 200;
+    navmenulinks.forEach(link => {
+      if (!link.hash) return;
+      const section = document.querySelector(link.hash);
       if (!section) return;
-      let position = window.scrollY + 200;
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
-        navmenulink.classList.add('active');
+
+      if (position >= section.offsetTop && position <= section.offsetTop + section.offsetHeight) {
+        document.querySelectorAll('.navmenu a.active').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
       } else {
-        navmenulink.classList.remove('active');
+        link.classList.remove('active');
       }
-    })
+    });
   }
+
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
