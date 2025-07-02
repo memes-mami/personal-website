@@ -631,15 +631,23 @@ section,
 .hero .social-links a:hover {
   color: var(--accent-color);
 }
-
 @media (max-width: 768px) {
-  .hero h2 {
-    font-size: 32px;
+  .hero {
+    flex-direction: column;
+    justify-content: flex-end; /* Push content to the bottom */
+    padding: 0 0 40px 0; /* Add some padding at the bottom */
   }
 
-  .hero p {
-    font-size: 20px;
+  .text-overlay {
+    margin-top: auto; /* Push it down */
+    align-self: flex-start; /* Optional: align to left if you want */
+    width: 100%;
+    border-radius: 0;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
   }
+}
+
 }
 
 /*--------------------------------------------------------------
