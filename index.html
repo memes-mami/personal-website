@@ -38,7 +38,16 @@
 
 <body class="index-page">
 
+
   <header id="header" class="header dark-background d-flex flex-column">
+  <div class="theme-toggle text-center mt-3">
+  <label style="color: var(--default-color); font-size: 14px;">
+    🌙 Dark Mode
+    <input type="checkbox" id="theme-switch" style="margin-left: 8px;">
+  </label>
+</div>
+
+
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="profile-img">
@@ -78,8 +87,9 @@
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
         <li><a href="#services"><i class="bi bi-briefcase navicon"></i> Services</a></li>
 
-<li class="dropdown"><a href="#"><i class="bi bi-award navicon"></i> <span>More</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-  <ul>
+<li class="dropdown">
+  <a href="#"><i class="bi bi-award navicon"></i> <span>More</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+  <ul class="dropdown-menu">
     <li><a href="#" data-section="achievements"><i class="bi bi-trophy"></i> Achievements</a></li>
     <li><a href="#" data-section="certifications"><i class="bi bi-patch-check"></i> Certifications</a></li>
     <li><a href="#" data-section="project-demos"><i class="bi bi-sliders2"></i> Project Demos</a></li>
@@ -135,7 +145,7 @@
         <div class="row">
           <div class="col-lg-6">
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>12th November</span></li>
+              
               <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>https://github.com/memes-mami</span></li>
               <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+91 90001 27904</span></li>
               <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>India</span></li>
@@ -143,7 +153,7 @@
           </div>
           <div class="col-lg-6">
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>21</span></li>
+              
               <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>BTech (ECE + AI Minor)</span></li>
               <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>vishnu107109@gmail.com</span></li>
               <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
@@ -153,10 +163,47 @@
         <p class="py-3">
           Selected for Amazon ML School 2024, I’ve worked extensively on projects ranging from semantic segmentation in remote sensing to interactive chatbot systems using NLP and speech recognition. I’ve also contributed to cloud optimization projects and published research on container management in distributed clusters. I'm driven to create efficient, scalable, and intelligent systems that deliver real-world impact.
         </p>
-        <a href="assets/resume/VishnuTeja_Resume.pdf" class="btn btn-primary mt-3" download target="_blank">
-  <i class="bi bi-download"></i> Download Resume
+        <a href="assets/resume/VishnuTeja_Resume.pdf" download target="_blank" style="display: inline-block; margin: 0; padding: 0;">
+  <button class="download-button no-space">
+    <div class="docs">
+      <svg
+        viewBox="0 0 24 24"
+        width="20"
+        height="20"
+        stroke="currentColor"
+        stroke-width="2"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+        <polyline points="14 2 14 8 20 8"></polyline>
+        <line x1="16" y1="13" x2="8" y2="13"></line>
+        <line x1="16" y1="17" x2="8" y2="17"></line>
+        <polyline points="10 9 9 9 8 9"></polyline>
+      </svg>
+      Resume
+    </div>
+    <div class="download">
+      <svg
+        viewBox="0 0 24 24"
+        width="24"
+        height="24"
+        stroke="currentColor"
+        stroke-width="2"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+    </div>
+  </button>
 </a>
-      </div>
+
+  </div>
     </div>
 
   </div>
@@ -201,8 +248,7 @@
 
 </section><!-- /Stats Section -->
 <!-- Skills Section -->
-<section id="skills" class="skills section light-background">
-
+<section id="skills" class="skills section">
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
     <h2>Skills</h2>
@@ -212,82 +258,103 @@
   <div class="container" data-aos="fade-up" data-aos-delay="100">
     <div class="skills-grid">
 
-      <div class="skill-icon python" data-tooltip="Python">
-        <img src="./assets/img/python2.png" alt="Python">
-      </div>
+      <!-- Skill Cards -->
+      <!-- Skill Cards -->
+<div class="skill-card python">
+  <div class="icon-container"><img src="./assets/img/python2.png" alt="Python"></div>
+  <div class="info"><p class="skill-name">Python</p><div class="rating">★★★★★</div></div>
+</div>
 
-      <div class="skill-icon cpp" data-tooltip="C++">
-        <img src="./assets/img/cpp.png" alt="C++">
-      </div>
+<div class="skill-card cpp">
+  <div class="icon-container"><img src="./assets/img/cpp.png" alt="C++"></div>
+  <div class="info"><p class="skill-name">C++</p><div class="rating">★★★☆☆</div></div>
+</div>
 
-      <div class="skill-icon java" data-tooltip="Java">
-        <img src="./assets/img/java.png" alt="Java">
-      </div>
+<div class="skill-card java">
+  <div class="icon-container"><img src="./assets/img/java.png" alt="Java"></div>
+  <div class="info"><p class="skill-name">Java</p><div class="rating">★★★★☆</div></div>
+</div>
 
-      <div class="skill-icon matlab" data-tooltip="MATLAB">
-        <img src="./assets/img/matlab.png" alt="MATLAB">
-      </div>
+<div class="skill-card matlab">
+  <div class="icon-container"><img src="./assets/img/matlab.png" alt="MATLAB"></div>
+  <div class="info"><p class="skill-name">MATLAB</p><div class="rating">★★★☆☆</div></div>
+</div>
 
-      <div class="skill-icon html" data-tooltip="HTML">
-        <img src="./assets/img/html5.png" alt="HTML">
-      </div>
+<div class="skill-card html">
+  <div class="icon-container"><img src="./assets/img/html5.png" alt="HTML"></div>
+  <div class="info"><p class="skill-name">HTML</p><div class="rating">★★★★☆</div></div>
+</div>
 
-      <div class="skill-icon css" data-tooltip="CSS">
-        <img src="./assets/img/css3.png" alt="CSS">
-      </div>
+<div class="skill-card css">
+  <div class="icon-container"><img src="./assets/img/css3.png" alt="CSS"></div>
+  <div class="info"><p class="skill-name">CSS</p><div class="rating">★★★☆☆</div></div>
+</div>
 
-      <div class="skill-icon javascript" data-tooltip="JavaScript">
-        <img src="./assets/img/javascript.png" alt="JavaScript">
-      </div>
+<div class="skill-card javascript">
+  <div class="icon-container"><img src="./assets/img/javascript.png" alt="JavaScript"></div>
+  <div class="info"><p class="skill-name">JavaScript</p><div class="rating">★★★☆☆</div></div>
+</div>
 
-      <div class="skill-icon flask" data-tooltip="Flask">
-        <img src="./assets/img/flask.png" alt="Flask">
-      </div>
+<div class="skill-card flask">
+  <div class="icon-container"><img src="./assets/img/flask.png" alt="Flask"></div>
+  <div class="info"><p class="skill-name">Flask</p><div class="rating">★★★☆☆</div></div>
+</div>
 
-      <div class="skill-icon pytorch" data-tooltip="PyTorch">
-        <img src="./assets/img/pytorch.png" alt="PyTorch">
-      </div>
+<div class="skill-card pytorch">
+  <div class="icon-container"><img src="./assets/img/pytorch.png" alt="PyTorch"></div>
+  <div class="info"><p class="skill-name">PyTorch</p><div class="rating">★★★★☆</div></div>
+</div>
 
-      <div class="skill-icon tensorflow" data-tooltip="TensorFlow">
-        <img src="./assets/img/tensorflow.png" alt="TensorFlow">
-      </div>
+<div class="skill-card tensorflow">
+  <div class="icon-container"><img src="./assets/img/tensorflow.png" alt="TensorFlow"></div>
+  <div class="info"><p class="skill-name">TensorFlow</p><div class="rating">★★★★☆</div></div>
+</div>
 
-      <div class="skill-icon powerbi" data-tooltip="Power BI">
-        <img src="./assets/img/powerbi.png" alt="Power BI">
-      </div>
+<div class="skill-card powerbi">
+  <div class="icon-container"><img src="./assets/img/powerbi.png" alt="Power BI"></div>
+  <div class="info"><p class="skill-name">Power BI</p><div class="rating">★★★★★</div></div>
+</div>
 
-      <div class="skill-icon aws" data-tooltip="AWS">
-        <img src="./assets/img/aws.png" alt="AWS">
-      </div>
+<div class="skill-card aws">
+  <div class="icon-container"><img src="./assets/img/aws.png" alt="AWS"></div>
+  <div class="info"><p class="skill-name">AWS</p><div class="rating">★★★☆☆</div></div>
+</div>
 
-      <div class="skill-icon azure" data-tooltip="Azure">
-        <img src="./assets/img/azure.png" alt="Azure">
-      </div>
+<div class="skill-card azure">
+  <div class="icon-container"><img src="./assets/img/azure.png" alt="Azure"></div>
+  <div class="info"><p class="skill-name">Azure</p><div class="rating">★★★★☆</div></div>
+</div>
 
-      <div class="skill-icon kubernetes" data-tooltip="Kubernetes">
-        <img src="./assets/img/kubernetes.png" alt="Kubernetes">
-      </div>
+<div class="skill-card kubernetes">
+  <div class="icon-container"><img src="./assets/img/kubernetes.png" alt="Kubernetes"></div>
+  <div class="info"><p class="skill-name">Kubernetes</p><div class="rating">★★★★☆</div></div>
+</div>
 
-      <div class="skill-icon docker" data-tooltip="Docker">
-        <img src="./assets/img/docker.png" alt="Docker">
-      </div>
+<div class="skill-card docker">
+  <div class="icon-container"><img src="./assets/img/docker.png" alt="Docker"></div>
+  <div class="info"><p class="skill-name">Docker</p><div class="rating">★★★☆☆</div></div>
+</div>
 
-      <div class="skill-icon git" data-tooltip="Git">
-        <img src="./assets/img/git.png" alt="Git">
-      </div>
+<div class="skill-card git">
+  <div class="icon-container"><img src="./assets/img/git.png" alt="Git"></div>
+  <div class="info"><p class="skill-name">Git</p><div class="rating">★★★★☆</div></div>
+</div>
 
-      <div class="skill-icon vscode" data-tooltip="VS Code">
-        <img src="./assets/img/vs-code.png" alt="VS Code">
-      </div>
+<div class="skill-card vscode">
+  <div class="icon-container"><img src="./assets/img/vs-code.png" alt="VS Code"></div>
+  <div class="info"><p class="skill-name">VS Code</p><div class="rating">★★★★★</div></div>
+</div>
 
-      <div class="skill-icon dbms" data-tooltip="DBMS">
-        <img src="./assets/img/dbms.png" alt="DBMS">
-      </div>
+<div class="skill-card dbms">
+  <div class="icon-container"><img src="./assets/img/dbms.png" alt="DBMS"></div>
+  <div class="info"><p class="skill-name">DBMS</p><div class="rating">★★★☆☆</div></div>
+</div>
+
 
     </div>
   </div>
-
 </section>
+
 
 
 
@@ -461,8 +528,7 @@
 
 </section><!-- /Services Section -->
 
-  
-   <!-- Contact Section -->
+  <!-- Contact Section -->
 <section id="contact" class="contact section">
 
   <!-- Section Title -->
@@ -479,14 +545,6 @@
 
         <div class="info-wrap">
           <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <i class="bi bi-geo-alt flex-shrink-0"></i>
-            <div>
-              <h3>Address</h3>
-              <p>Akkapedianera, Dharmavaram, Andhra Pradesh 515671</p>
-            </div>
-          </div><!-- End Info Item -->
-
-          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
             <i class="bi bi-telephone flex-shrink-0"></i>
             <div>
               <h3>Call Me</h3>
@@ -494,7 +552,7 @@
             </div>
           </div><!-- End Info Item -->
 
-          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
             <i class="bi bi-envelope flex-shrink-0"></i>
             <div>
               <h3>Email Me</h3>
@@ -502,49 +560,48 @@
             </div>
           </div><!-- End Info Item -->
 
-          <iframe 
-            src="https://www.google.com/maps?q=14.416349,77.726471&hl=es;z=14&output=embed"
-            frameborder="0" 
-            style="border:0; width: 100%; height: 270px;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+            <i class="bi bi-linkedin flex-shrink-0"></i>
+            <div>
+              <h3>LinkedIn</h3>
+              <p><a href="https://linkedin.com/in/your-profile" target="_blank">https://www.linkedin.com/in/vishnu-teja-426b61223/
+</a></p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+            <i class="bi bi-instagram flex-shrink-0"></i>
+            <div>
+              <h3>Instagram</h3>
+              <p><a href="https://instagram.com/your-profile" target="_blank">@mamiboii007</a></p>
+            </div>
+          </div><!-- End Info Item -->
+
         </div>
       </div>
 
       <div class="col-lg-7">
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+        <form action="https://formspree.io/f/xyzjvkqv" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
           <div class="row gy-4">
-
-          <div class="col-md-6">
-  <label for="name-field" class="pb-2">Your Name</label>
-  <input type="text" name="name" id="name-field" class="form-control" required placeholder="e.g., Vishnu Teja">
-</div>
-
-<div class="col-md-6">
-  <label for="email-field" class="pb-2">Your Email</label>
-  <input type="email" class="form-control" name="email" id="email-field" required placeholder="e.g., you@example.com">
-</div>
-
-<div class="col-md-12">
-  <label for="subject-field" class="pb-2">Subject</label>
-  <input type="text" class="form-control" name="subject" id="subject-field" required placeholder="e.g., Collaboration on ML project">
-</div>
-
-<div class="col-md-12">
-  <label for="message-field" class="pb-2">Message</label>
-  <textarea class="form-control" name="message" rows="10" id="message-field" required placeholder="e.g., Hi Vishnu, I’m interested in discussing a project related to AI deployment on cloud..."></textarea>
-</div>
-
+            <div class="col-md-6">
+              <label for="name-field" class="pb-2">Your Name</label>
+              <input type="text" name="name" id="name-field" class="form-control" required placeholder="e.g., Vishnu Teja">
+            </div>
+            <div class="col-md-6">
+              <label for="email-field" class="pb-2">Your Email</label>
+              <input type="email" name="email" id="email-field" class="form-control" required placeholder="you@example.com">
+            </div>
+            <div class="col-md-12">
+              <label for="subject-field" class="pb-2">Subject</label>
+              <input type="text" name="subject" id="subject-field" class="form-control" required placeholder="Subject">
+            </div>
+            <div class="col-md-12">
+              <label for="message-field" class="pb-2">Message</label>
+              <textarea name="message" id="message-field" class="form-control" rows="10" required></textarea>
+            </div>
             <div class="col-md-12 text-center">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-
               <button type="submit">Send Message</button>
             </div>
-
           </div>
         </form>
       </div><!-- End Contact Form -->
@@ -554,6 +611,7 @@
   </div>
 
 </section><!-- /Contact Section -->
+
 
 
 <!-- Achievements Section -->
@@ -615,11 +673,23 @@
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
-  <div id="preloader"></div>
+  <div id="preloader">
+  <div class="newtons-cradle">
+    <div class="newtons-cradle__dot"></div>
+    <div class="newtons-cradle__dot"></div>
+    <div class="newtons-cradle__dot"></div>
+    <div class="newtons-cradle__dot"></div>
+  </div>
+</div>
+
+
+
+
+
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
