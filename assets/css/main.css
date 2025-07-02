@@ -716,7 +716,7 @@ section,
 /* Skill Grid Container */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(9, 1fr); /* exactly 8 per row */
+  grid-template-columns: repeat(6, 1fr); /* exactly 8 per row */
   gap: 24px;
   justify-items: center;
   margin-top: 40px;
