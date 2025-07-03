@@ -46,11 +46,18 @@ document.querySelectorAll('#navmenu a').forEach(navLink => {
 });
 
 
-  document.querySelectorAll('.skill-card').forEach(card => {
-    card.addEventListener('click', () => {
-      card.classList.toggle('active');
-    });
+ document.querySelectorAll('.skill-card').forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.add('active');
+
+    if (window.innerWidth <= 768) {
+      setTimeout(() => {
+        card.classList.remove('active');
+      }, 2500); // 2.5 seconds
+    }
   });
+});
+
 
 const switcher = document.getElementById('theme-switch');
 
@@ -165,17 +172,28 @@ if (preloader) {
   /**
    * Animate skill progress bars when in view
    */
-  document.querySelectorAll('.skills-animation').forEach((skillBlock) => {
-    new Waypoint({
-      element: skillBlock,
-      offset: '80%',
-      handler: function () {
-        skillBlock.querySelectorAll('.progress .progress-bar').forEach(bar => {
-          bar.style.width = bar.getAttribute('aria-valuenow') + '%';
-        });
-      }
+function isMobileView() {
+  return window.innerWidth <= 768;
+}
+
+document.querySelectorAll('.skill-card').forEach(card => {
+  card.addEventListener('click', function (e) {
+    if (!isMobileView()) return; // Prevent selection in desktop/tablet
+
+    // Remove any previously active card
+    document.querySelectorAll('.skill-card.active').forEach(activeCard => {
+      activeCard.classList.remove('active');
     });
+
+    // Add active to current
+    this.classList.add('active');
+
+    // Remove after 2 seconds
+    setTimeout(() => {
+      this.classList.remove('active');
+    }, 2000);
   });
+});
 
   /**
    * Lightbox for images/videos

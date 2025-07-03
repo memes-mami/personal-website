@@ -22,37 +22,55 @@ body, .section, .skill-card, .footer {
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --background-color: #F1F1F1
+
+; /* Background color for the entire website, including individual sections */
   --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #050d18; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #149ddd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --surface-color: #F1F1F1
+
+; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #F1F1F1
+
+; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #a8a9b4;  /* The default color of the main navmenu links */
-  --nav-hover-color: #ffffff; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-hover-color: #F1F1F1
+
+; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #040b14; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #040b14; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #a8a9b4; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #ffffff; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-dropdown-hover-color: #F1F1F1
+
+; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
   --background-color: #f4fafd;
-  --surface-color: #ffffff;
+  --surface-color: #F1F1F1
+
+;
 }
 
 .dark-background {
   --background-color: #040b14;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
+  --default-color: #F1F1F1
+
+;
+  --heading-color: #F1F1F1
+
+;
   --surface-color: #151f2b;
-  --contrast-color: #ffffff;
+  --contrast-color: #F1F1F1
+
+;
 }
 
 /* Smooth scroll */
@@ -95,7 +113,9 @@ h6 {
 .php-email-form .error-message {
   display: none;
   background: #df1529;
-  color: #ffffff;
+  color: #F1F1F1
+
+;
   text-align: left;
   padding: 15px;
   margin-bottom: 24px;
@@ -104,7 +124,9 @@ h6 {
 
 .php-email-form .sent-message {
   display: none;
-  color: #ffffff;
+  color: #F1F1F1
+
+;
   background: #059652;
   text-align: center;
   padding: 15px;
@@ -653,7 +675,12 @@ section,
     justify-content: flex-end; /* Push content to the bottom */
     padding: 0 0 40px 0; /* Add some padding at the bottom */
   }
-
+ .hero h2 {
+    font-size: 36px !important;
+  }
+    .hero .text-overlay {
+    padding: 16px 20px;
+  }
   .text-overlay {
     margin-top: auto; /* Push it down */
     align-self: flex-start; /* Optional: align to left if you want */
@@ -785,22 +812,54 @@ section,
 a {
   text-decoration: none; /* optional: remove underline */
 }
+/*statss--------------------8*/
+.stats .stats-item {
+  padding: 30px;
+  width: 100%;
+}
+
+.stats .stats-item i {
+  color: var(--accent-color);
+  display: block;
+  font-size: 44px;
+  float: left;
+  line-height: 0;
+}
+
+.stats .stats-item .purecounter {
+  color: var(--heading-color);
+  font-size: 48px;
+  line-height: 40px;
+  display: block;
+  font-weight: 700;
+  margin-left: 60px;
+}
+
+.stats .stats-item p {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  padding: 15px 0 0 0;
+  margin: 0 0 0 60px;
+  font-family: var(--heading-font);
+  font-size: 14px;
+}
 
 /* Skills Grid Layout */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* Exactly 6 items per row */
+  grid-template-columns: repeat(6, 1fr);
   gap: 24px;
   justify-items: center;
   margin-top: 40px;
 }
+
 .skills.section {
-  background-color: #ffffff; /* Light theme default */
+  background-color: #F1F1F1
+
+;
   transition: background-color 0.3s ease;
 }
-body.dark .skills.section {
-  background-color: var(--background-color) !important;
-}
+
+body.dark .skills.section,
 body.dark .skills.section.light-background {
   background-color: var(--background-color) !important;
 }
@@ -808,15 +867,21 @@ body.dark .skills.section.light-background {
 /* Responsive fallback for tablets and phones */
 @media (max-width: 1200px) {
   .skills-grid {
-    grid-template-columns: repeat(4, 1fr); /* 4 per row on medium screens */
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
+/* Cursor settings */
+.skill-card {
+  cursor: default;
+}
+
 @media (max-width: 768px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 per row on small screens */
+  .skill-card {
+    cursor: pointer;
   }
 }
+
 /* Skill Card Styling */
 .skill-card {
   position: relative;
@@ -831,19 +896,21 @@ body.dark .skills.section.light-background {
   justify-content: center;
   padding: 8px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: pointer;
   text-align: center;
   box-shadow: none;
   overflow: hidden;
   z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+
 body.dark .skill-card {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
 
-/* Full image */
 .skill-card .icon-container {
   width: 100%;
   height: 100%;
@@ -861,7 +928,6 @@ body.dark .skill-card {
   transition: transform 0.3s ease;
 }
 
-/* Skill Text */
 .skill-card .info {
   background: var(--surface-color);
   width: 100%;
@@ -875,8 +941,7 @@ body.dark .skill-card {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.skill-card:hover .info,
-.skill-card.active .info {
+.skill-card:hover .info {
   transform: translateY(0);
   opacity: 1;
 }
@@ -893,7 +958,6 @@ body.dark .skill-card {
   color: var(--default-color);
 }
 
-/* Glow Effect on Hover */
 .skill-card::after {
   content: "";
   position: absolute;
@@ -902,7 +966,6 @@ body.dark .skill-card {
   transform: translateX(-50%);
   width: 60%;
   height: 10px;
-  background: rgba(0, 255, 255, 0.6);
   border-radius: 50%;
   filter: blur(10px);
   opacity: 0;
@@ -910,105 +973,26 @@ body.dark .skill-card {
   z-index: 0;
 }
 
-.skill-card:hover,
-.skill-card.active {
+/* HOVER effects for desktop/tablet */
+.skill-card:hover {
   transform: translateY(-20px) scale(1.08);
-  box-shadow:
-    0 0 12px rgba(0, 255, 255, 0.6),
-    0 0 24px rgba(0, 255, 255, 0.5),
-    0 0 36px rgba(0, 255, 255, 0.4),
-    0 12px 24px rgba(0, 0, 0, 0.3);
-}
-
-.skill-card:hover::after,
-.skill-card.active::after {
-  opacity: 1;
-}
-
-.skill-card:hover img,
-.skill-card.active img {
-  transform: scale(1.05);
-}
-
-/* Custom Glows by Skill */
-.skill-card.python:hover, .python.active { box-shadow: 0 0 20px #ffd43b, 0 0 40px #ffd43b; }
-.python::after { background: #ffd43b; }
-
-.skill-card.cpp:hover, .cpp.active { box-shadow: 0 0 20px #00599c, 0 0 40px #00599c; }
-.cpp::after { background: #00599c; }
-
-.skill-card.java:hover, .java.active { box-shadow: 0 0 20px #5382a1, 0 0 40px #5382a1; }
-.java::after { background: #5382a1; }
-
-.skill-card.matlab:hover, .matlab.active { box-shadow: 0 0 20px #ff5b00, 0 0 40px #ff5b00; }
-.matlab::after { background: #ff5b00; }
-
-.skill-card.html:hover, .html.active { box-shadow: 0 0 20px #e34c26, 0 0 40px #e34c26; }
-.html::after { background: #e34c26; }
-
-.skill-card.css:hover, .css.active { box-shadow: 0 0 20px #264de4, 0 0 40px #264de4; }
-.css::after { background: #264de4; }
-
-.skill-card.javascript:hover, .javascript.active { box-shadow: 0 0 20px #f0db4f, 0 0 40px #f0db4f; }
-.javascript::after { background: #f0db4f; }
-
-.skill-card.flask:hover, .flask.active { box-shadow: 0 0 20px #000000, 0 0 40px #000000; }
-.flask::after { background: #000000; }
-
-.skill-card.pytorch:hover, .pytorch.active { box-shadow: 0 0 20px #ee4c2c, 0 0 40px #ee4c2c; }
-.pytorch::after { background: #ee4c2c; }
-
-.skill-card.tensorflow:hover, .tensorflow.active { box-shadow: 0 0 20px #ff6f00, 0 0 40px #ff6f00; }
-.tensorflow::after { background: #ff6f00; }
-
-.skill-card.powerbi:hover, .powerbi.active { box-shadow: 0 0 20px #f2c811, 0 0 40px #f2c811; }
-.powerbi::after { background: #f2c811; }
-
-.skill-card.aws:hover, .aws.active { box-shadow: 0 0 20px #ff9900, 0 0 40px #ff9900; }
-.aws::after { background: #ff9900; }
-
-.skill-card.azure:hover, .azure.active { box-shadow: 0 0 20px #007fff, 0 0 40px #007fff; }
-.azure::after { background: #007fff; }
-
-.skill-card.kubernetes:hover, .kubernetes.active { box-shadow: 0 0 20px #326ce5, 0 0 40px #326ce5; }
-.kubernetes::after { background: #326ce5; }
-
-.skill-card.docker:hover, .docker.active { box-shadow: 0 0 20px #0db7ed, 0 0 40px #0db7ed; }
-.docker::after { background: #0db7ed; }
-
-.skill-card.git:hover, .git.active { box-shadow: 0 0 20px #f1502f, 0 0 40px #f1502f; }
-.git::after { background: #f1502f; }
-
-.skill-card.vscode:hover, .vscode.active { box-shadow: 0 0 20px #007acc, 0 0 40px #007acc; }
-.vscode::after { background: #007acc; }
-
-.skill-card.dbms:hover, .dbms.active { box-shadow: 0 0 20px #4682b4, 0 0 40px #4682b4; }
-.dbms::after { background: #4682b4; }
-
-/* Border and Shadow for Skill Cards */
-.skill-card {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-body.dark .skill-card {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-}
-
-/* Enhanced Hover with Border and Shadow */
-.skill-card:hover,
-.skill-card.active {
   border: 1px solid rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
-  transform: translateY(-20px) scale(1.08);
   box-shadow:
     0 0 12px rgba(0, 255, 255, 0.6),
     0 0 24px rgba(0, 255, 255, 0.4),
     0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Inner Shadow Effect on Hover */
+.skill-card:hover::after {
+  opacity: 1;
+}
+
+.skill-card:hover img {
+  transform: scale(1.05);
+}
+
 .skill-card:hover::before {
   content: '';
   position: absolute;
@@ -1018,6 +1002,89 @@ body.dark .skill-card {
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
   z-index: 0;
 }
+
+/* Custom Glows by Skill (only on hover now) */
+.skill-card.python:hover { box-shadow: 0 0 20px #ffd43b, 0 0 40px #ffd43b; }
+.python::after { background: #ffd43b; }
+
+.skill-card.cpp:hover { box-shadow: 0 0 20px #00599c, 0 0 40px #00599c; }
+.cpp::after { background: #00599c; }
+
+.skill-card.java:hover { box-shadow: 0 0 20px #5382a1, 0 0 40px #5382a1; }
+.java::after { background: #5382a1; }
+
+.skill-card.matlab:hover { box-shadow: 0 0 20px #ff5b00, 0 0 40px #ff5b00; }
+.matlab::after { background: #ff5b00; }
+
+.skill-card.html:hover { box-shadow: 0 0 20px #e34c26, 0 0 40px #e34c26; }
+.html::after { background: #e34c26; }
+
+.skill-card.css:hover { box-shadow: 0 0 20px #264de4, 0 0 40px #264de4; }
+.css::after { background: #264de4; }
+
+.skill-card.javascript:hover { box-shadow: 0 0 20px #f0db4f, 0 0 40px #f0db4f; }
+.javascript::after { background: #f0db4f; }
+
+.skill-card.flask:hover { box-shadow: 0 0 20px #000000, 0 0 40px #000000; }
+.flask::after { background: #000000; }
+
+.skill-card.pytorch:hover { box-shadow: 0 0 20px #ee4c2c, 0 0 40px #ee4c2c; }
+.pytorch::after { background: #ee4c2c; }
+
+.skill-card.tensorflow:hover { box-shadow: 0 0 20px #ff6f00, 0 0 40px #ff6f00; }
+.tensorflow::after { background: #ff6f00; }
+
+.skill-card.powerbi:hover { box-shadow: 0 0 20px #f2c811, 0 0 40px #f2c811; }
+.powerbi::after { background: #f2c811; }
+
+.skill-card.aws:hover { box-shadow: 0 0 20px #ff9900, 0 0 40px #ff9900; }
+.aws::after { background: #ff9900; }
+
+.skill-card.azure:hover { box-shadow: 0 0 20px #007fff, 0 0 40px #007fff; }
+.azure::after { background: #007fff; }
+
+.skill-card.kubernetes:hover { box-shadow: 0 0 20px #326ce5, 0 0 40px #326ce5; }
+.kubernetes::after { background: #326ce5; }
+
+.skill-card.docker:hover { box-shadow: 0 0 20px #0db7ed, 0 0 40px #0db7ed; }
+.docker::after { background: #0db7ed; }
+
+.skill-card.git:hover { box-shadow: 0 0 20px #f1502f, 0 0 40px #f1502f; }
+.git::after { background: #f1502f; }
+
+.skill-card.vscode:hover { box-shadow: 0 0 20px #007acc, 0 0 40px #007acc; }
+.vscode::after { background: #007acc; }
+
+.skill-card.dbms:hover { box-shadow: 0 0 20px #4682b4, 0 0 40px #4682b4; }
+.dbms::after { background: #4682b4; }
+
+/* MOBILE ONLY: Active state on tap */
+@media (max-width: 768px) {
+  .skill-card.active {
+    background: rgba(0, 255, 255, 0.05) !important;
+    border: 1px solid rgba(0, 255, 255, 0.4) !important;
+    transform: translateY(-20px) scale(1.08);
+    backdrop-filter: blur(12px);
+    box-shadow:
+      0 0 12px rgba(0, 255, 255, 0.6),
+      0 0 24px rgba(0, 255, 255, 0.4),
+      0 12px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .skill-card.active::after {
+    opacity: 1;
+  }
+
+  .skill-card.active img {
+    transform: scale(1.05);
+  }
+
+  .skill-card.active .info {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 
 /*--------------------------------------------------------------
 # Resume Section
@@ -1144,7 +1211,9 @@ body.dark .skill-card {
   font-size: 14px;
   padding: 5px 10px;
   font-weight: 400;
-  color: #ffffff;
+  color: #F1F1F1
+
+;
   display: inline-block;
   background-color: var(--accent-color);
 }
@@ -1598,17 +1667,25 @@ body.dark .skill-card {
 body.dark {
   --background-color: #121212;
   --default-color: #e0e0e0;
-  --heading-color: #ffffff;
+  --heading-color: #F1F1F1
+
+;
   --accent-color: #64b5f6;
   --surface-color: #1e1e1e;
-  --contrast-color: #ffffff;
+  --contrast-color: #F1F1F1
+
+;
 
   --nav-color: #cccccc;
-  --nav-hover-color: #ffffff;
+  --nav-hover-color: #F1F1F1
+
+;
   --nav-mobile-background-color: #1a1a1a;
   --nav-dropdown-background-color: #1a1a1a;
   --nav-dropdown-color: #cccccc;
-  --nav-dropdown-hover-color: #ffffff;
+  --nav-dropdown-hover-color: #F1F1F1
+
+;
 }
 
 body.dark body,
@@ -1813,3 +1890,221 @@ body.dark .skill-card .rating {
 }
 
 
+/* Floating Dark Mode Toggle */
+
+
+/* Move slider when checked */
+
+
+/* Floating toggle positioning */
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+/* From Uiverse.io by Galahhad */ 
+.theme-switch {
+  --toggle-size: 13px;
+  /* the size is adjusted using font-size,
+     this is not transform scale,
+     so you can choose any size */
+  --container-width: 5.625em;
+  --container-height: 2.5em;
+  --container-radius: 6.25em;
+  /* radius 0 - minecraft mode :) */
+  --container-light-bg: #3D7EAE;
+  --container-night-bg: #1D1F2C;
+  --circle-container-diameter: 3.375em;
+  --sun-moon-diameter: 2.125em;
+  --sun-bg: #ECCA2F;
+  --moon-bg: #C4C9D1;
+  --spot-color: #959DB1;
+  --circle-container-offset: calc((var(--circle-container-diameter) - var(--container-height)) / 2 * -1);
+  --stars-color: #fff;
+  --clouds-color: #F3FDFF;
+  --back-clouds-color: #AACADF;
+  --transition: .5s cubic-bezier(0, -0.02, 0.4, 1.25);
+  --circle-transition: .3s cubic-bezier(0, -0.02, 0.35, 1.17);
+}
+
+.theme-switch, .theme-switch *, .theme-switch *::before, .theme-switch *::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: var(--toggle-size);
+}
+
+.theme-switch__container {
+  width: var(--container-width);
+  height: var(--container-height);
+  background-color: var(--container-light-bg);
+  border-radius: var(--container-radius);
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-box-shadow: 0em -0.062em 0.062em rgba(0, 0, 0, 0.25), 0em 0.062em 0.125em rgba(255, 255, 255, 0.94);
+  box-shadow: 0em -0.062em 0.062em rgba(0, 0, 0, 0.25), 0em 0.062em 0.125em rgba(255, 255, 255, 0.94);
+  -webkit-transition: var(--transition);
+  -o-transition: var(--transition);
+  transition: var(--transition);
+  position: relative;
+}
+
+.theme-switch__container::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  -webkit-box-shadow: 0em 0.05em 0.187em rgba(0, 0, 0, 0.25) inset, 0em 0.05em 0.187em rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 0em 0.05em 0.187em rgba(0, 0, 0, 0.25) inset, 0em 0.05em 0.187em rgba(0, 0, 0, 0.25) inset;
+  border-radius: var(--container-radius)
+}
+
+.theme-switch__checkbox {
+  display: none;
+}
+
+.theme-switch__circle-container {
+  width: var(--circle-container-diameter);
+  height: var(--circle-container-diameter);
+  background-color: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  left: var(--circle-container-offset);
+  top: var(--circle-container-offset);
+  border-radius: var(--container-radius);
+  -webkit-box-shadow: inset 0 0 0 3.375em rgba(255, 255, 255, 0.1), inset 0 0 0 3.375em rgba(255, 255, 255, 0.1), 0 0 0 0.625em rgba(255, 255, 255, 0.1), 0 0 0 1.25em rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 3.375em rgba(255, 255, 255, 0.1), inset 0 0 0 3.375em rgba(255, 255, 255, 0.1), 0 0 0 0.625em rgba(255, 255, 255, 0.1), 0 0 0 1.25em rgba(255, 255, 255, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: var(--circle-transition);
+  -o-transition: var(--circle-transition);
+  transition: var(--circle-transition);
+  pointer-events: none;
+}
+
+.theme-switch__sun-moon-container {
+  pointer-events: auto;
+  position: relative;
+  z-index: 2;
+  width: var(--sun-moon-diameter);
+  height: var(--sun-moon-diameter);
+  margin: auto;
+  border-radius: var(--container-radius);
+  background-color: var(--sun-bg);
+  -webkit-box-shadow: 0.062em 0.062em 0.062em 0em rgba(254, 255, 239, 0.61) inset, 0em -0.062em 0.062em 0em #a1872a inset;
+  box-shadow: 0.062em 0.062em 0.062em 0em rgba(254, 255, 239, 0.61) inset, 0em -0.062em 0.062em 0em #a1872a inset;
+  -webkit-filter: drop-shadow(0.062em 0.125em 0.125em rgba(0, 0, 0, 0.25)) drop-shadow(0em 0.062em 0.125em rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0.062em 0.125em 0.125em rgba(0, 0, 0, 0.25)) drop-shadow(0em 0.062em 0.125em rgba(0, 0, 0, 0.25));
+  overflow: hidden;
+  -webkit-transition: var(--transition);
+  -o-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.theme-switch__moon {
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+  width: 100%;
+  height: 100%;
+  background-color: var(--moon-bg);
+  border-radius: inherit;
+  -webkit-box-shadow: 0.062em 0.062em 0.062em 0em rgba(254, 255, 239, 0.61) inset, 0em -0.062em 0.062em 0em #969696 inset;
+  box-shadow: 0.062em 0.062em 0.062em 0em rgba(254, 255, 239, 0.61) inset, 0em -0.062em 0.062em 0em #969696 inset;
+  -webkit-transition: var(--transition);
+  -o-transition: var(--transition);
+  transition: var(--transition);
+  position: relative;
+}
+
+.theme-switch__spot {
+  position: absolute;
+  top: 0.75em;
+  left: 0.312em;
+  width: 0.75em;
+  height: 0.75em;
+  border-radius: var(--container-radius);
+  background-color: var(--spot-color);
+  -webkit-box-shadow: 0em 0.0312em 0.062em rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 0em 0.0312em 0.062em rgba(0, 0, 0, 0.25) inset;
+}
+
+.theme-switch__spot:nth-of-type(2) {
+  width: 0.375em;
+  height: 0.375em;
+  top: 0.937em;
+  left: 1.375em;
+}
+
+.theme-switch__spot:nth-last-of-type(3) {
+  width: 0.25em;
+  height: 0.25em;
+  top: 0.312em;
+  left: 0.812em;
+}
+
+.theme-switch__clouds {
+  width: 1.25em;
+  height: 1.25em;
+  background-color: var(--clouds-color);
+  border-radius: var(--container-radius);
+  position: absolute;
+  bottom: -0.625em;
+  left: 0.312em;
+  -webkit-box-shadow: 0.937em 0.312em var(--clouds-color), -0.312em -0.312em var(--back-clouds-color), 1.437em 0.375em var(--clouds-color), 0.5em -0.125em var(--back-clouds-color), 2.187em 0 var(--clouds-color), 1.25em -0.062em var(--back-clouds-color), 2.937em 0.312em var(--clouds-color), 2em -0.312em var(--back-clouds-color), 3.625em -0.062em var(--clouds-color), 2.625em 0em var(--back-clouds-color), 4.5em -0.312em var(--clouds-color), 3.375em -0.437em var(--back-clouds-color), 4.625em -1.75em 0 0.437em var(--clouds-color), 4em -0.625em var(--back-clouds-color), 4.125em -2.125em 0 0.437em var(--back-clouds-color);
+  box-shadow: 0.937em 0.312em var(--clouds-color), -0.312em -0.312em var(--back-clouds-color), 1.437em 0.375em var(--clouds-color), 0.5em -0.125em var(--back-clouds-color), 2.187em 0 var(--clouds-color), 1.25em -0.062em var(--back-clouds-color), 2.937em 0.312em var(--clouds-color), 2em -0.312em var(--back-clouds-color), 3.625em -0.062em var(--clouds-color), 2.625em 0em var(--back-clouds-color), 4.5em -0.312em var(--clouds-color), 3.375em -0.437em var(--back-clouds-color), 4.625em -1.75em 0 0.437em var(--clouds-color), 4em -0.625em var(--back-clouds-color), 4.125em -2.125em 0 0.437em var(--back-clouds-color);
+  -webkit-transition: 0.5s cubic-bezier(0, -0.02, 0.4, 1.25);
+  -o-transition: 0.5s cubic-bezier(0, -0.02, 0.4, 1.25);
+  transition: 0.5s cubic-bezier(0, -0.02, 0.4, 1.25);
+}
+
+.theme-switch__stars-container {
+  position: absolute;
+  color: var(--stars-color);
+  top: -100%;
+  left: 0.312em;
+  width: 2.75em;
+  height: auto;
+  -webkit-transition: var(--transition);
+  -o-transition: var(--transition);
+  transition: var(--transition);
+}
+
+/* actions */
+
+.theme-switch__checkbox:checked + .theme-switch__container {
+  background-color: var(--container-night-bg);
+}
+
+.theme-switch__checkbox:checked + .theme-switch__container .theme-switch__circle-container {
+  left: calc(100% - var(--circle-container-offset) - var(--circle-container-diameter));
+}
+
+.theme-switch__checkbox:checked + .theme-switch__container .theme-switch__circle-container:hover {
+  left: calc(100% - var(--circle-container-offset) - var(--circle-container-diameter) - 0.187em)
+}
+
+.theme-switch__circle-container:hover {
+  left: calc(var(--circle-container-offset) + 0.187em);
+}
+
+.theme-switch__checkbox:checked + .theme-switch__container .theme-switch__moon {
+  -webkit-transform: translate(0);
+  -ms-transform: translate(0);
+  transform: translate(0);
+}
+
+.theme-switch__checkbox:checked + .theme-switch__container .theme-switch__clouds {
+  bottom: -4.062em;
+}
+
+.theme-switch__checkbox:checked + .theme-switch__container .theme-switch__stars-container {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
