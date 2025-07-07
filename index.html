@@ -826,6 +826,7 @@
       border: none;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease;
+      height: 100%;
     }
 
     #certifications-section .card:hover {
@@ -851,7 +852,7 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Uiverse Button Styling Scoped */
+    /* Uiverse Button Styling */
     #certifications-section .back-button {
       padding: 15px 25px;
       border: unset;
@@ -877,7 +878,6 @@
       border-radius: 15px;
       background-color: #212121;
       z-index: -1;
-      box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
       transition: all 250ms;
     }
 
@@ -888,6 +888,33 @@
     #certifications-section .back-button:hover::before {
       width: 100%;
     }
+
+    /* 🔧 Mobile Optimizations */
+    @media (max-width: 767.98px) {
+      #certifications-section h2 {
+        font-size: 1.5rem;
+      }
+
+      #certifications-section h5 {
+        font-size: 1rem;
+      }
+
+      #certifications-section .row {
+        row-gap: 1.25rem;
+      }
+
+      #certifications-section .pdf-frame-wrapper {
+        aspect-ratio: 1 / 1.3;
+      }
+
+      #certifications-section h6 {
+        font-size: 0.75rem;
+      }
+
+      #certifications-section .card {
+        padding: 0.5rem;
+      }
+    }
   </style>
 
   <div class="container">
@@ -897,6 +924,7 @@
     </div>
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+
       <!-- Certificate Cards -->
       <div class="col">
         <div class="card h-100">
@@ -952,13 +980,14 @@
           </a>
         </div>
       </div>
-            <div class="col">
+
+      <div class="col">
         <div class="card h-100">
           <a href="assets/pdfs/dlwithpytorch.pdf" target="_blank" class="text-decoration-none text-center d-block p-3">
             <div class="pdf-frame-wrapper mb-2">
               <iframe src="assets/pdfs/dlwithpytorch.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
             </div>
-            <h6 class="text-muted">Deep learning: GAN Network </h6>
+            <h6 class="text-muted">Deep Learning: GAN Network</h6>
           </a>
         </div>
       </div>
@@ -995,6 +1024,7 @@
           </a>
         </div>
       </div>
+
     </div>
 
     <div class="text-center mt-4">
