@@ -339,3 +339,23 @@ document.querySelectorAll('.skill-card').forEach(card => {
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+ document.addEventListener("DOMContentLoaded", function () {
+    const dropdownTriggers = document.querySelectorAll('.navmenu .dropdown > a');
+
+    dropdownTriggers.forEach(trigger => {
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const parent = this.parentElement;
+        const submenu = parent.querySelector('.dropdown-menu');
+
+        if (submenu.classList.contains('dropdown-active')) {
+          submenu.classList.remove('dropdown-active');
+        } else {
+          // Close all others
+          document.querySelectorAll('.dropdown-menu').forEach(menu => menu.classList.remove('dropdown-active'));
+          submenu.classList.add('dropdown-active');
+        }
+      });
+    });
+  });
