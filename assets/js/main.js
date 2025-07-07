@@ -53,7 +53,7 @@ document.querySelectorAll('#navmenu a').forEach(navLink => {
     if (window.innerWidth <= 768) {
       setTimeout(() => {
         card.classList.remove('active');
-      }, 2500); // 2.5 seconds
+      }, 0); // 2.5 seconds
     }
   });
 });
