@@ -29,15 +29,31 @@ if (window.innerWidth < 768) {
    * Hide mobile nav on same-page/hash links
    */
 
-  /*changes*/
- document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
+  /* again changes*/
+ document.querySelectorAll('#navmenu a[href^="#"]').forEach(navLink => {
+  navLink.addEventListener('click', function (e) {
+    const targetId = this.getAttribute('href').substring(1);
+    const targetEl = document.getElementById(targetId);
+
+    if (targetEl) {
+      e.preventDefault();
+
+      // ✅ Automatically restore default sections
+      if (typeof window.goBack === 'function') window.goBack();
+
+      // ✅ Close mobile nav if open
       if (document.querySelector('.header-show')) {
         headerToggle();
       }
-    });
 
+      // ✅ Scroll to the section after restoring view
+      setTimeout(() => {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }, 250); // delay to ensure goBack() finishes updating DOM
+    }
   });
+});
+
 
 
  document.querySelectorAll('.skill-card').forEach(card => {
