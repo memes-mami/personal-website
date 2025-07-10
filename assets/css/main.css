@@ -367,10 +367,14 @@ h6 {
   .navmenu .dropdown {
     display: block;
   }
-
-  .navmenu .dropdown a,
+.navmenu .dropdown a,
 .navmenu .dropdown a:focus {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* ✅ Add spacing between icon and text */
   color: var(--nav-dropdown-color);
+  padding: 10px 15px;
+  font-size: 15px;
 }
 
 
@@ -601,38 +605,42 @@ section,
 .section-title p {
   margin-bottom: 0;
 }
-
 /*--------------------------------------------------------------
-# Hero Section
+# Hero Section (Fixed bottom-left name box)
 --------------------------------------------------------------*/
+
 .hero {
   width: 100%;
   min-height: 100vh;
   position: relative;
-  padding: 80px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0;
+  overflow: hidden;
 }
+
+/* ✅ NEW: Container that pins the name + text to bottom-left */
+.hero-name-box {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  z-index: 5;
+  max-width: 90%;
+}
+
+/* Styled box for name and tagline */
 .text-overlay {
   background: rgba(255, 255, 255, 0.1); /* Light translucent white */
-  backdrop-filter: blur(10px); /* Blur behind the text */
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 30px 40px;
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25); /* Bumped-up shadow */
-  border: 1px solid rgba(255, 255, 255, 0.18); /* Soft border for gloss effect */
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    0 4px 30px rgba(0, 0, 0, 0.1),
+    0 0 20px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   max-width: fit-content;
 }
-.text-overlay {
-  /* Add this to the existing properties above */
-  box-shadow:
-    0 4px 30px rgba(0, 0, 0, 0.1),
-    0 0 20px rgba(255, 255, 255, 0.05); /* Extra glow */
-}
 
-
-/* Optional: Enhance the text appearance inside the box */
 .text-overlay h2,
 .text-overlay p {
   color: white;
@@ -649,7 +657,6 @@ section,
   z-index: 1;
 }
 
-
 .hero:before {
   content: "";
   background: color-mix(in srgb, var(--background-color), transparent 70%);
@@ -658,11 +665,7 @@ section,
   z-index: 2;
 }
 
-.hero .container {
-  position: relative;
-  z-index: 3;
-}
-
+/* Optional: Typed text styling */
 .hero h2 {
   margin: 0;
   font-size: 64px;
@@ -679,6 +682,7 @@ section,
   border-bottom: 2px solid var(--accent-color);
 }
 
+/* Optional: Social links if used */
 .hero .social-links {
   margin-top: 25px;
 }
@@ -695,27 +699,30 @@ section,
 .hero .social-links a:hover {
   color: var(--accent-color);
 }
+
+/* ✅ Responsive layout for mobile */
 @media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    justify-content: flex-end; /* Push content to the bottom */
-    padding: 0 0 40px 0; /* Add some padding at the bottom */
+  .hero-name-box {
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
   }
- .hero h2 {
+
+  .text-overlay {
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 12px;
+  }
+
+  .hero h2 {
     font-size: 36px !important;
   }
-    .hero .text-overlay {
-    padding: 16px 20px;
-  }
-  .text-overlay {
-    margin-top: auto; /* Push it down */
-    align-self: flex-start; /* Optional: align to left if you want */
-    width: 100%;
-    border-radius: 0;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
+
+  .hero p {
+    font-size: 20px;
   }
 }
+
 
 
 /*--------------------------------------------------------------
