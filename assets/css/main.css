@@ -648,11 +648,7 @@ section,
   object-fit: cover;
   z-index: 1;
 }
-@media (max-width: 768px) {
-  .hero img {
-    content: url('assets/img/hero-bg.jpg');
-  }
-}
+
 
 .hero:before {
   content: "";
