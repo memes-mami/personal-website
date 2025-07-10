@@ -13,6 +13,9 @@
    * Header toggle for mobile nav
    */
   const headerToggleBtn = document.querySelector('.header-toggle');
+document.querySelector('.header-toggle')?.addEventListener('click', function () {
+  document.querySelector('.header')?.classList.toggle('header-show');
+});
 
   function headerToggle() {
     document.querySelector('#header').classList.toggle('header-show');
