@@ -14,41 +14,30 @@ if (window.innerWidth < 768) {
   "use strict";
 
   /**
-   * Header toggle for mobile nav
-   */
+   * Header toggle
+   *chnage*/
   const headerToggleBtn = document.querySelector('.header-toggle');
-
 
   function headerToggle() {
     document.querySelector('#header').classList.toggle('header-show');
     headerToggleBtn.classList.toggle('bi-list');
     headerToggleBtn.classList.toggle('bi-x');
   }
-
-  if (headerToggleBtn) {
-    headerToggleBtn.addEventListener('click', headerToggle);
-  }
+  headerToggleBtn.addEventListener('click', headerToggle);
 
   /**
    * Hide mobile nav on same-page/hash links
    */
-document.querySelectorAll('#navmenu a').forEach(navLink => {
-  navLink.addEventListener('click', (e) => {
-    const href = navLink.getAttribute('href');
 
-    if (href === '#hero') {
-      e.preventDefault(); // prevent default scroll
-      goBack(); // show all default sections again
-      setTimeout(() => {
-        document.querySelector('#hero')?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    }
+  /*changes*/
+ document.querySelectorAll('#navmenu a').forEach(navmenu => {
+    navmenu.addEventListener('click', () => {
+      if (document.querySelector('.header-show')) {
+        headerToggle();
+      }
+    });
 
-    if (document.querySelector('#header.header-show')) {
-      headerToggle();
-    }
   });
-});
 
 
  document.querySelectorAll('.skill-card').forEach(card => {
@@ -322,24 +311,24 @@ document.querySelectorAll('.skill-card').forEach(card => {
   /**
    * Scrollspy - highlight active menu based on scroll
    */
-  const navmenulinks = document.querySelectorAll('.navmenu a');
+
+  /* changes here*/
+ let navmenulinks = document.querySelectorAll('.navmenu a');
 
   function navmenuScrollspy() {
-    const position = window.scrollY + 200;
-    navmenulinks.forEach(link => {
-      if (!link.hash) return;
-      const section = document.querySelector(link.hash);
+    navmenulinks.forEach(navmenulink => {
+      if (!navmenulink.hash) return;
+      let section = document.querySelector(navmenulink.hash);
       if (!section) return;
-
-      if (position >= section.offsetTop && position <= section.offsetTop + section.offsetHeight) {
-        document.querySelectorAll('.navmenu a.active').forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
+      let position = window.scrollY + 200;
+      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
+        navmenulink.classList.add('active');
       } else {
-        link.classList.remove('active');
+        navmenulink.classList.remove('active');
       }
-    });
+    })
   }
-
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
