@@ -88,7 +88,7 @@
   <ul class="dropdown-menu">
     <li><a href="#" data-section="achievements"><i class="bi bi-trophy"></i> Achievements</a></li>
     <li><a href="#" data-section="certifications"><i class="bi bi-patch-check"></i> Certifications</a></li>
-    <li><a href="#" data-section="project-demos"><i class="bi bi-sliders2"></i> Project Demos</a></li>
+    <li><a href="#" data-section="project-demos"><i class="bi bi-sliders2"></i> Project </a></li>
     
   </ul>
 </li>
@@ -99,20 +99,12 @@
     <!-- Legendary Dark Mode Toggle -->
   <li class="legend-item">
     <label id="theme-toggle" class="theme-switch legend-switch" title="Toggle Dark Mode">
-      <span class="legend-icon">🌗</span>
+    
       <span class="legend-label">Dark Mode</span>
 
       <input type="checkbox" id="theme-switch" class="theme-switch__checkbox" />
       <div class="theme-switch__container">
         <div class="theme-switch__clouds"></div>
-        <div class="theme-switch__stars-container">
-          <!-- Optional decorative SVG -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 55" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M135.831 3.00688C135.055 3.85027 134.111 4.29946 133 4.35447C134.111 4.40947 135.055 4.85867 135.831 5.71123C136.607 6.55462 136.996 7.56303 136.996 8.72727C136.996 7.95722 137.172 7.25134 137.525 6.59129C137.886 5.93124 138.372 5.39954 138.98 5.00535C139.598 4.60199 140.268 4.39114 141 4.35447C139.88 4.2903 138.936 3.85027 138.16 3.00688C137.384 2.16348 136.996 1.16425 136.996 0C136.996 1.16425 136.607 2.16348 135.831 3.00688Z"
-              fill="currentColor"></path>
-          </svg>
-        </div>
         <div class="theme-switch__circle-container">
           <div class="theme-switch__sun-moon-container">
             <div class="theme-switch__moon">
@@ -639,7 +631,7 @@
 
 
 <!-- Achievements Section -->
-<section id="achievements-section" class="section py-5">
+<section id="achievements-section" class="section py-5" style="display: none;">
   <style>
     #achievements-section {
       background-color: var(--background-color);
@@ -679,43 +671,6 @@
       }
     }
 
-    /* Uiverse Button Styling Scoped */
-    #achievements-section .back-button {
-      padding: 15px 25px;
-      border: unset;
-      border-radius: 15px;
-      color: #212121;
-      z-index: 1;
-      background: #e8e8e8;
-      position: relative;
-      font-weight: 1000;
-      font-size: 17px;
-      box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-      transition: all 250ms;
-      overflow: hidden;
-    }
-
-    #achievements-section .back-button::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 0;
-      border-radius: 15px;
-      background-color: #212121;
-      z-index: -1;
-      box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-      transition: all 250ms;
-    }
-
-    #achievements-section .back-button:hover {
-      color: #e8e8e8;
-    }
-
-    #achievements-section .back-button:hover::before {
-      width: 100%;
-    }
   </style>
 
   <div class="container">
@@ -850,43 +805,6 @@
       font-size: 0.85rem;
       margin-top: 0.5rem;
       margin-bottom: 0.5rem;
-    }
-
-    /* Uiverse Button Styling */
-    #certifications-section .back-button {
-      padding: 15px 25px;
-      border: unset;
-      border-radius: 15px;
-      color: #212121;
-      z-index: 1;
-      background: #e8e8e8;
-      position: relative;
-      font-weight: 1000;
-      font-size: 17px;
-      box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-      transition: all 250ms;
-      overflow: hidden;
-    }
-
-    #certifications-section .back-button::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 0;
-      border-radius: 15px;
-      background-color: #212121;
-      z-index: -1;
-      transition: all 250ms;
-    }
-
-    #certifications-section .back-button:hover {
-      color: #e8e8e8;
-    }
-
-    #certifications-section .back-button:hover::before {
-      width: 100%;
     }
 
     /* 🔧 Mobile Optimizations */
@@ -1034,25 +952,200 @@
     </div>
   </div>
 </section>
+<!-- Project Section -->
+<section id="project-demos-section" class="section py-5" style="display: none; background-color: #f8f9fa;">
+  <style>
+    .cssbuttons-io {
+      position: relative;
+      font-family: inherit;
+      font-weight: 500;
+      font-size: 15px;
+      letter-spacing: 0.05em;
+      border-radius: 0.65em;
+      cursor: pointer;
+      border: none;
+      background: linear-gradient(to right, #8e2de2, #4a00e0);
+      color: ghostwhite;
+      overflow: hidden;
+    }
 
+    .cssbuttons-io svg {
+      width: 1em;
+      height: 1em;
+      margin-right: 0.4em;
+    }
 
+    .cssbuttons-io span {
+      position: relative;
+      z-index: 10;
+      transition: color 0.4s;
+      display: inline-flex;
+      align-items: center;
+  padding: 0.6em 1.1em 0.6em 1em; /* ↓ padding all sides */
+    }
 
-<!-- Project Demos Section -->
-<section id="project-demos-section" class="section" style="display: none;">
-  <div class="container section-title">
-    <h2>Project Demos</h2>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <strong>Logsscan+</strong> – <a href="https://github.com/memes-mami/rssegmentation" target="_blank">GitHub</a>
-      </li>
-      <li class="list-group-item">
-        <strong>Consisti2V</strong> – <a href="https://github.com/memes-mami/Consistenti2v" target="_blank">GitHub</a>
-      </li>
+    .cssbuttons-io::before,
+    .cssbuttons-io::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .cssbuttons-io::before {
+      content: "";
+      background: #000;
+      width: 120%;
+      left: -10%;
+      transform: skew(30deg);
+      transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+    }
+
+    .cssbuttons-io:hover::before {
+      transform: translate3d(100%, 0, 0);
+    }
+
+    .cssbuttons-io:active {
+      transform: scale(0.95);
+    }
+  </style>
+
+  <div class="container">
+    <h2 class="text-center mb-5">Projects</h2>
+
+   <!-- Project 1: RS Segmentation -->
+<div class="row align-items-center mb-5">
+  <div class="col-md-6">
+    <img src="assets/img/rss.png" class="img-fluid rounded shadow" alt="RS Segmentation">
+  </div>
+
+  <div class="col-md-6">
+    <h4>RS Segmentation Toolbox</h4>
+    <ul>
+      <li>Semantic segmentation for high-resolution urban and rural satellite imagery.</li>
+      <li>Helps identify regions like buildings, roads, vegetation, and water bodies.</li>
+      <li>Useful in <strong>urban planning</strong>, <strong>agriculture monitoring</strong>, <strong>land-use mapping</strong>, and <strong>disaster response</strong>.</li>
+      <li>Supports benchmark datasets: Vaihingen, Potsdam, LoveDA.</li>
+      <li>Includes CAMs, TSNE visualizations, and real-time optimized RepViT models.</li>
     </ul>
-    <button onclick="goBack()" class="btn btn-secondary mt-4"><i class="bi bi-arrow-left"></i> Back</button>
+    <p><strong>Tech Stack:</strong> PyTorch, RepViT</p>
+    <a href="https://github.com/memes-mami/rssegmentation" target="_blank">
+      <button class="cssbuttons-io">
+        <span>
+          <svg viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path>
+          </svg>
+          Code
+        </span>
+      </button>
+    </a>
+  </div>
+</div>
+
+<!-- Project 2: ConsistI2V -->
+<div class="row align-items-center mb-5 flex-md-row-reverse">
+  <div class="col-md-6">
+    <img src="assets/img/consist2.png" class="img-fluid rounded shadow" alt="ConsistI2V">
+  </div>
+  <div class="col-md-6">
+    <h4>ConsistI2V</h4>
+    <ul>
+      <li>Image-to-Video generation system with enhanced visual and motion consistency.</li>
+      <li>Built a <strong>Gradio interface</strong> to accept natural language prompts.</li>
+      <li>Used <strong>Stable Diffusion XL</strong> to generate the first image from the prompt.</li>
+      <li>The image and prompt are then passed to the <strong>ConsistI2V model</strong> to generate a smooth and consistent video.</li>
+      <li>Integrated Hugging Face model loading and custom inference settings.</li>
+    </ul>
+    <h6><strong>Applications:</strong></h6>
+    <ul>
+      <li>Video creation from storyboards or concept art for filmmakers and animators.</li>
+      <li>Marketing content generation from a single product image.</li>
+      <li>Educational visualizations from illustrated diagrams.</li>
+      <li>Prototype generation for game developers and VR simulations.</li>
+      <li>Social media content generation from prompts or sketches.</li>
+    </ul>
+    <p><strong>Tech Stack:</strong> PyTorch, Stable Diffusion XL, Gradio</p>
+    <a href="https://github.com/memes-mami/Consistenti2v" target="_blank">
+      <button class="cssbuttons-io">
+        <span>
+          <svg viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path></svg>
+          Code
+        </span>
+      </button>
+    </a>
+  </div>
+</div>
+<!-- Project 3: FlapPyBird -->
+<div class="row align-items-center mb-5">
+  <div class="col-md-6">
+    <img src="assets/img/flappy.png" class="img-fluid rounded shadow" alt="FlapPyBird">
+  </div>
+  <div class="col-md-6">
+    <h4>FlapPyBird with Gesture Control</h4>
+    <ul>
+      <li>A gesture-controlled version of the classic Flappy Bird game.</li>
+      <li>Players flap the bird by forming an “O” shape using the thumb and index finger.</li>
+      <li>Gesture detection powered by webcam input using computer vision.</li>
+      <li>Supports other interaction modes like blink and touch control.</li>
+      <li>Browser play enabled via PygBag.</li>
+    </ul>
+    <p><strong>Tech Stack:</strong> Python, Pygame, OpenCV, MediaPipe, PygBag</p>
+    <a href="https://github.com/memes-mami/FlapPyBird" target="_blank">
+      <button class="cssbuttons-io">
+        <span>
+          <svg viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path></svg>
+          Code
+        </span>
+      </button>
+    </a>
+  </div>
+</div>
+<!-- Project 4: Chatbot Portfolio -->
+<div class="row align-items-center mb-5 flex-md-row-reverse">
+  <div class="col-md-6">
+    <img src="assets/img/chatbot.png" class="img-fluid rounded shadow" alt="Chatbot">
+  </div>
+  <div class="col-md-6">
+    <h4>Chatbot Portfolio</h4>
+    <ul>
+      <li>A personalized chatbot integrated into a developer portfolio website.</li>
+      <li>Works as a browser extension (tested with Brave, adaptable to others).</li>
+      <li>Processes user queries using a local LLM powered by <strong>Ollama</strong>.</li>
+      <li>Uses a data-driven Q&A system with smart query-response matching.</li>
+      <li>Responds to predefined questions related to skills, projects, and experience.</li>
+      <li>Improves recruiter interaction through a conversational interface.</li>
+    </ul>
+    <p><strong>Future Enhancements:</strong></p>
+    <ul>
+      <li>Support for speech-to-text queries and voice responses.</li>
+      <li>Dynamic retrieval from live project or resume data.</li>
+      <li>Integration with ATS or email parsing tools for job targeting.</li>
+    </ul>
+    <p><strong>Tech Stack:</strong> JavaScript, Pytorch, Web Applictions</p>
+    <a href="#" target="_blank">
+      <button class="cssbuttons-io">
+        <span>
+          <svg viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path>
+          </svg>
+          Code
+        </span>
+      </button>
+    </a>
+  </div>
+</div>
+
+    <div class="text-center mt-4">
+      <button onclick="goBack()" class="back-button">
+        <i class="bi bi-arrow-left"></i> Back
+      </button>
+    </div>
   </div>
 </section>
-
 
   </main>
 
