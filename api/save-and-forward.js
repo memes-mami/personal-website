@@ -3,8 +3,7 @@ export default async function handler(req, res) {
 
   const { name, email, subject, message } = req.body;
 
-  const formspreeURL = "https://formspree.io/f/xyzjvkqv"; // Replace with your actual
-  const googleScriptURL =" https://script.google.com/macros/s/AKfycbwU3iB9o-Z0gOtCvQEaxvWUUxwnabuDCmxSC5OlbAyW4A1nIusI3RZugByLRoe9KUq2nQ/exec"; // Replace with your script URL
+  const googleScriptURL = "https://script.google.com/macros/s/AKfycbwU3iB9o-Z0gOtCvQEaxvWUUxwnabuDCmxSC5OlbAyW4A1nIusI3RZugByLRoe9KUq2nQ/exec"; // Replace with your script URL
 
   try {
     // 1. Save to Google Sheets
@@ -16,16 +15,7 @@ export default async function handler(req, res) {
       body: new URLSearchParams({ name, email, subject, message })
     });
 
-    // 2. Send to Formspree
-    await fetch(formspreeURL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      body: new URLSearchParams({ name, email, subject, message })
-    });
-
-    // 3. Redirect to thank-you
+    // 2. Redirect to thank-you page
     return res.redirect(302, '/thankyou.html');
   } catch (err) {
     console.error(err);
