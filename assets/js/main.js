@@ -5,6 +5,10 @@
  * Author: BootstrapMade.com
  * Modified By: Vishnu Teja
  */
+/* minimise delauy*/
+if (window.innerWidth < 768) {
+  AOS.init({ disable: true });
+}
 
 (function () {
   "use strict";
@@ -13,9 +17,7 @@
    * Header toggle for mobile nav
    */
   const headerToggleBtn = document.querySelector('.header-toggle');
-document.querySelector('.header-toggle')?.addEventListener('click', function () {
-  document.querySelector('.header')?.classList.toggle('header-show');
-});
+
 
   function headerToggle() {
     document.querySelector('#header').classList.toggle('header-show');
