@@ -257,8 +257,8 @@ document.querySelectorAll('.skill-card').forEach(card => {
    * Show custom section from "More" dropdown (e.g., achievements, certifications)
    */
   function showCustomSection(sectionId) {
-    const defaultSections = ['hero', 'about', 'skills', 'resume', 'services', 'contact', 'stats'];
-    const customSections = ['achievements-section', 'certifications-section', 'project-demos-section'];
+    const defaultSections = ['hero', 'about', 'skills', 'resume', 'services', 'contact', 'stats','project-demos-section'];
+    const customSections = ['achievements-section', 'certifications-section'];
     const footer = document.querySelector('footer');
 
     // Hide all sections and footer
@@ -279,8 +279,8 @@ document.querySelectorAll('.skill-card').forEach(card => {
    * Back button to return from custom section to main sections
    */
   window.goBack = function () {
-    const defaultSections = ['hero', 'about', 'skills', 'resume', 'services', 'contact', 'stats'];
-    const customSections = ['achievements-section', 'certifications-section', 'project-demos-section'];
+    const defaultSections = ['hero', 'about', 'skills', 'resume', 'services', 'contact', 'stats','project-demos-section'];
+    const customSections = ['achievements-section', 'certifications-section'];
     const footer = document.querySelector('footer');
 
     // Hide custom sections
