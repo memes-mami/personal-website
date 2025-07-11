@@ -55,20 +55,6 @@ if (window.innerWidth < 768) {
 });
 
 
-
- document.querySelectorAll('.skill-card').forEach(card => {
-  card.addEventListener('click', () => {
-    card.classList.add('active');
-
-    if (window.innerWidth <= 768) {
-      setTimeout(() => {
-        card.classList.remove('active');
-      }, 0); // 2.5 seconds
-    }
-  });
-});
-
-
 const switcher = document.getElementById('theme-switch');
 
 function applyDarkTheme(enable) {
@@ -99,9 +85,10 @@ switcher.addEventListener('change', function () {
   applyDarkTheme(this.checked);
 });
 
-  /**
+/**
    * Toggle dropdowns in mobile nav (e.g., "More" menu)
    */
+     /* changes
   document.querySelectorAll('.navmenu .toggle-dropdown').forEach(dropdownToggle => {
     dropdownToggle.addEventListener('click', function (e) {
       e.preventDefault();
@@ -110,7 +97,7 @@ switcher.addEventListener('change', function () {
       e.stopImmediatePropagation();
     });
   });
-
+*/
   /**
    * Preloader
    */
