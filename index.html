@@ -30,13 +30,6 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: iPortfolio
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Updated: Jun 29 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page">
@@ -84,14 +77,15 @@
         <li><a href="#skills"><i class="bi bi-bar-chart-line navicon"></i> Skills</a></li>
 
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="#project-demos-section"><i class="bi bi-sliders2 navicon"></i> Project </a></li>
         <li><a href="#services"><i class="bi bi-briefcase navicon"></i> Services</a></li>
 
 <li class="dropdown">
-  <a href="#"><i class="bi bi-award navicon"></i> <span>More</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+  <a href="#"><i class="bi bi-award navicon"></i> <span>More</span> <i class="bi bi-chevron-down "></i></a>
   <ul class="dropdown-menu">
     <li><a href="#" data-section="achievements"><i class="bi bi-trophy"></i> Achievements</a></li>
     <li><a href="#" data-section="certifications"><i class="bi bi-patch-check"></i> Certifications</a></li>
-    <li><a href="#" data-section="project-demos"><i class="bi bi-sliders2"></i> Project </a></li>
+    
     
   </ul>
 </li>
@@ -294,7 +288,7 @@
 
 </section><!-- /Stats Section -->
 <!-- Skills Section -->
-<section id="skills" class="skills section">
+<section id="skills" class="skills section" >
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
     <h2>Skills</h2>
@@ -421,32 +415,13 @@
           <p>Percentage: 94%</p>
         </div>
 
-        <h3 class="resume-title">Projects</h3>
-
+ <h3 class="resume-title">Publication</h3>
         <div class="resume-item">
-          <h4>Logsscan Plus</h4>
-          <p><em>Semantic Segmentation | GCA & LCA | Remote Sensing</em></p>
+          <h4>Research on Container Management in Distributed Clusters</h4>
+          <p><em>IEEE - 2024</em></p>
           <ul>
-            <li>Developed an AI model for land segmentation using Google Earth Engine & DeepLabV3+.</li>
-            <li><a href="https://github.com/memes-mami/rssegmentation" target="_blank">GitHub Repository</a></li>
-          </ul>
-        </div>
-
-        <div class="resume-item">
-          <h4>Consisti2V</h4>
-          <p><em>Video Generation Consistency Project</em></p>
-          <ul>
-            <li>Developed a PyTorch pipeline for generating temporally consistent AI videos.</li>
-            <li><a href="https://github.com/memes-mami/Consistenti2v" target="_blank">GitHub Repository</a></li>
-          </ul>
-        </div>
-
-        <div class="resume-item">
-          <h4>Chatbot for Students</h4>
-          <p><em>NLP | Flask | Whisper API</em></p>
-          <ul>
-            <li>Built an interactive voice/text chatbot using speech-to-text & OpenAI APIs.</li>
-            <li><a href="https://github.com/memes-mami/ChatBot" target="_blank">GitHub Repository</a></li>
+            <li>Co-authored a paper optimizing AI cloud resource allocation.</li>
+            <li><a href="https://ieeexplore.ieee.org/document/10707067" target="_blank">Read on IEEE Xplore</a></li>
           </ul>
         </div>
 
@@ -488,15 +463,7 @@
           </ul>
         </div>
 
-        <h3 class="resume-title">Publication</h3>
-        <div class="resume-item">
-          <h4>Research on Container Management in Distributed Clusters</h4>
-          <p><em>IEEE - 2024</em></p>
-          <ul>
-            <li>Co-authored a paper optimizing AI cloud resource allocation.</li>
-            <li><a href="https://ieeexplore.ieee.org/document/10707067" target="_blank">Read on IEEE Xplore</a></li>
-          </ul>
-        </div>
+       
 
       </div>
 
@@ -506,7 +473,157 @@
 
 </section><!-- /Resume Section -->
 
+<!-- Project Section -->
+<section id="project-demos-section" class="section py-5" style="background-color: #F1F1F1;">
 
+  
+      <div class="container section-title" data-aos="fade-up">
+    <h2>Projects</h2>
+  </div><!-- End Section Title -->
+<div class="container">
+    <!-- Project 1: RS Segmentation -->
+     <div class="project-card mb-5" data-aos="fade-up">
+    <div class="row align-items-center mb-5">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <img src="assets/img/rss.png" class="img-fluid rounded shadow mb-4" alt="RS Segmentation">
+      </div>
+      <div class="col-md-6">
+        <h4>RS Segmentation Toolbox</h4>
+        <ul>
+          <li>Semantic segmentation for high-resolution urban and rural satellite imagery.</li>
+          <li>Helps identify regions like buildings, roads, vegetation, and water bodies.</li>
+          <li>Useful in <strong>urban planning</strong>, <strong>agriculture monitoring</strong>, <strong>land-use mapping</strong>, and <strong>disaster response</strong>.</li>
+          <li>Supports benchmark datasets: Vaihingen, Potsdam, LoveDA.</li>
+          <li>Includes CAMs, TSNE visualizations, and real-time optimized RepViT models.</li>
+        </ul>
+        <p><strong>Tech Stack:</strong> PyTorch, RepViT</p>
+        <a href="https://github.com/memes-mami/rssegmentation" target="_blank">
+          <button class="cssbuttons-io">
+            <span>
+              <svg viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path>
+              </svg>
+              Code
+            </span>
+          </button>
+        </a>
+      </div>
+    </div>
+    </div>
+    
+
+    <!-- Project 2: ConsistI2V -->
+     <div class="project-card mb-5" data-aos="fade-up">
+    <div class="row align-items-center mb-5 flex-md-row-reverse">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <img src="assets/img/consist2.png" class="img-fluid rounded shadow mb-4" alt="ConsistI2V">
+      </div>
+      <div class="col-md-6">
+        <h4>ConsistI2V</h4>
+        <ul>
+          <li>Image-to-Video generation system with enhanced visual and motion consistency.</li>
+          <li>Built a <strong>Gradio interface</strong> to accept natural language prompts.</li>
+          <li>Used <strong>Stable Diffusion XL</strong> to generate the first image from the prompt.</li>
+          <li>The image and prompt are then passed to the <strong>ConsistI2V model</strong> to generate a smooth and consistent video.</li>
+          <li>Integrated Hugging Face model loading and custom inference settings.</li>
+        </ul>
+        <h6><strong>Applications:</strong></h6>
+        <ul>
+          <li>Video creation from storyboards or concept art for filmmakers and animators.</li>
+          <li>Marketing content generation from a single product image.</li>
+          <li>Educational visualizations from illustrated diagrams.</li>
+          <li>Prototype generation for game developers and VR simulations.</li>
+          <li>Social media content generation from prompts or sketches.</li>
+        </ul>
+        <p><strong>Tech Stack:</strong> PyTorch, Stable Diffusion XL, Gradio</p>
+        <a href="https://github.com/memes-mami/Consistenti2v" target="_blank">
+          <button class="cssbuttons-io">
+            <span>
+              <svg viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path>
+              </svg>
+              Code
+            </span>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+    <!-- Project 3: FlapPyBird -->
+     <div class="project-card mb-5" data-aos="fade-up">
+    <div class="row align-items-center mb-5">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <img src="assets/img/flappy.png" class="img-fluid rounded shadow mb-4" alt="FlapPyBird">
+      </div>
+      <div class="col-md-6">
+        <h4>FlapPyBird with Gesture Control</h4>
+        <ul>
+          <li>A gesture-controlled version of the classic Flappy Bird game.</li>
+          <li>Players flap the bird by forming an “O” shape using the thumb and index finger.</li>
+          <li>Gesture detection powered by webcam input using computer vision.</li>
+          <li>Supports other interaction modes like blink and touch control.</li>
+          <li>Browser play enabled via PygBag.</li>
+        </ul>
+        <p><strong>Tech Stack:</strong> Python, Pygame, OpenCV, MediaPipe, PygBag</p>
+        <a href="https://github.com/memes-mami/FlapPyBird" target="_blank">
+          <button class="cssbuttons-io">
+            <span>
+              <svg viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path>
+              </svg>
+              Code
+            </span>
+          </button>
+        </a>
+      </div>
+    </div>
+    </div>
+
+
+    <!-- Project 4: Chatbot Portfolio -->
+     <div class="project-card mb-5" data-aos="fade-up">
+    <div class="row align-items-center mb-5 flex-md-row-reverse">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <img src="assets/img/chatbot.png" class="img-fluid rounded shadow mb-4" alt="Chatbot">
+      </div>
+      <div class="col-md-6">
+        <h4>Chatbot Portfolio</h4>
+        <ul>
+          <li>A personalized chatbot integrated into a developer portfolio website.</li>
+          <li>Works as a browser extension (tested with Brave, adaptable to others).</li>
+          <li>Processes user queries using a local LLM powered by <strong>Ollama</strong>.</li>
+          <li>Uses a data-driven Q&A system with smart query-response matching.</li>
+          <li>Responds to predefined questions related to skills, projects, and experience.</li>
+          <li>Improves recruiter interaction through a conversational interface.</li>
+        </ul>
+        <p><strong>Future Enhancements:</strong></p>
+        <ul>
+          <li>Support for speech-to-text queries and voice responses.</li>
+          <li>Dynamic retrieval from live project or resume data.</li>
+          <li>Integration with ATS or email parsing tools for job targeting.</li>
+        </ul>
+        <p><strong>Tech Stack:</strong> JavaScript, Pytorch, Web Applictions</p>
+        <a href="#" target="_blank">
+          <button class="cssbuttons-io">
+            <span>
+              <svg viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path>
+              </svg>
+              Code
+            </span>
+          </button>
+        </a>
+      </div>
+    </div>
+</div>
+</div>
+  
+</section>
   
     <!-- Services Section -->
 <section id="services" class="services section">
@@ -638,47 +755,7 @@
 
 <!-- Achievements Section -->
 <section id="achievements-section" class="section py-5" style="display: none;">
-  <style>
-    #achievements-section {
-      background-color: var(--background-color);
-      transition: background-color 0.3s ease;
-    }
-
-    #achievements-section .card {
-      background-color: var(--surface-color);
-      color: var(--default-color);
-      border: none;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease-in-out;
-    }
-
-    #achievements-section .card-title {
-      color: var(--heading-color);
-    }
-
-    #achievements-section .card-text,
-    #achievements-section .text-muted {
-      color: color-mix(in srgb, var(--default-color), transparent 30%);
-      font-size: 0.85rem;
-    }
-
-    #achievements-section .text-primary {
-      color: var(--accent-color) !important;
-    }
-
-    @media (max-width: 768px) {
-      #achievements-section .card-body {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      #achievements-section .card-body i {
-        margin-bottom: 10px;
-      }
-    }
-
-  </style>
-
+ 
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="fw-bold text-primary">🏆 Achievements & Honors</h2>
@@ -770,76 +847,7 @@
 
 <!-- Certifications Section -->
 <section id="certifications-section" class="section py-5" style="display: none;">
-  <style>
-    #certifications-section {
-      background-color: var(--background-color);
-      transition: background-color 0.3s ease;
-    }
-
-    #certifications-section h2,
-    #certifications-section h5,
-    #certifications-section h6 {
-      color: var(--default-color);
-    }
-
-    #certifications-section .card {
-      background-color: var(--surface-color);
-      border: none;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease;
-      height: 100%;
-    }
-
-    #certifications-section .card:hover {
-      transform: scale(1.015);
-    }
-
-    #certifications-section .pdf-frame-wrapper {
-      aspect-ratio: 4/3;
-      overflow: hidden;
-      border-radius: 8px;
-    }
-
-    #certifications-section iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      pointer-events: none;
-    }
-
-    #certifications-section h6 {
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    /* 🔧 Mobile Optimizations */
-    @media (max-width: 767.98px) {
-      #certifications-section h2 {
-        font-size: 1.5rem;
-      }
-
-      #certifications-section h5 {
-        font-size: 1rem;
-      }
-
-      #certifications-section .row {
-        row-gap: 1.25rem;
-      }
-
-      #certifications-section .pdf-frame-wrapper {
-        aspect-ratio: 1 / 1.3;
-      }
-
-      #certifications-section h6 {
-        font-size: 0.75rem;
-      }
-
-      #certifications-section .card {
-        padding: 0.5rem;
-      }
-    }
-  </style>
+  
 
   <div class="container">
     <div class="text-center mb-4">
@@ -958,207 +966,7 @@
     </div>
   </div>
 </section>
-<!-- Project Section -->
-<section id="project-demos-section" class="section py-5" style="display: none; background-color: #f8f9fa;">
-  <style>
-    .cssbuttons-io {
-      position: relative;
-      font-family: inherit;
-      font-weight: 500;
-      font-size: 15px;
-      letter-spacing: 0.05em;
-      border-radius: 0.65em;
-      cursor: pointer;
-      border: none;
-      background: linear-gradient(to right, #8e2de2, #4a00e0);
-      color: ghostwhite;
-      overflow: hidden;
-    }
 
-    .cssbuttons-io svg {
-      width: 1em;
-      height: 1em;
-      margin-right: 0.4em;
-    }
-
-    .cssbuttons-io span {
-      position: relative;
-      z-index: 10;
-      transition: color 0.4s;
-      display: inline-flex;
-      align-items: center;
-      padding: 0.6em 1.1em 0.6em 1em;
-    }
-
-    .cssbuttons-io::before,
-    .cssbuttons-io::after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-
-    .cssbuttons-io::before {
-      content: "";
-      background: #000;
-      width: 120%;
-      left: -10%;
-      transform: skew(30deg);
-      transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
-    }
-
-    .cssbuttons-io:hover::before {
-      transform: translate3d(100%, 0, 0);
-    }
-
-    .cssbuttons-io:active {
-      transform: scale(0.95);
-    }
-  </style>
-
-  <div class="container">
-    <h2 class="text-center mb-5">Projects</h2>
-
-    <!-- Project 1: RS Segmentation -->
-    <div class="row align-items-center mb-5">
-      <div class="col-md-6 mb-4 mb-md-0">
-        <img src="assets/img/rss.png" class="img-fluid rounded shadow mb-4" alt="RS Segmentation">
-      </div>
-      <div class="col-md-6">
-        <h4>RS Segmentation Toolbox</h4>
-        <ul>
-          <li>Semantic segmentation for high-resolution urban and rural satellite imagery.</li>
-          <li>Helps identify regions like buildings, roads, vegetation, and water bodies.</li>
-          <li>Useful in <strong>urban planning</strong>, <strong>agriculture monitoring</strong>, <strong>land-use mapping</strong>, and <strong>disaster response</strong>.</li>
-          <li>Supports benchmark datasets: Vaihingen, Potsdam, LoveDA.</li>
-          <li>Includes CAMs, TSNE visualizations, and real-time optimized RepViT models.</li>
-        </ul>
-        <p><strong>Tech Stack:</strong> PyTorch, RepViT</p>
-        <a href="https://github.com/memes-mami/rssegmentation" target="_blank">
-          <button class="cssbuttons-io">
-            <span>
-              <svg viewBox="0 0 24 24">
-                <path d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path>
-              </svg>
-              Code
-            </span>
-          </button>
-        </a>
-      </div>
-    </div>
-
-    <!-- Project 2: ConsistI2V -->
-    <div class="row align-items-center mb-5 flex-md-row-reverse">
-      <div class="col-md-6 mb-4 mb-md-0">
-        <img src="assets/img/consist2.png" class="img-fluid rounded shadow mb-4" alt="ConsistI2V">
-      </div>
-      <div class="col-md-6">
-        <h4>ConsistI2V</h4>
-        <ul>
-          <li>Image-to-Video generation system with enhanced visual and motion consistency.</li>
-          <li>Built a <strong>Gradio interface</strong> to accept natural language prompts.</li>
-          <li>Used <strong>Stable Diffusion XL</strong> to generate the first image from the prompt.</li>
-          <li>The image and prompt are then passed to the <strong>ConsistI2V model</strong> to generate a smooth and consistent video.</li>
-          <li>Integrated Hugging Face model loading and custom inference settings.</li>
-        </ul>
-        <h6><strong>Applications:</strong></h6>
-        <ul>
-          <li>Video creation from storyboards or concept art for filmmakers and animators.</li>
-          <li>Marketing content generation from a single product image.</li>
-          <li>Educational visualizations from illustrated diagrams.</li>
-          <li>Prototype generation for game developers and VR simulations.</li>
-          <li>Social media content generation from prompts or sketches.</li>
-        </ul>
-        <p><strong>Tech Stack:</strong> PyTorch, Stable Diffusion XL, Gradio</p>
-        <a href="https://github.com/memes-mami/Consistenti2v" target="_blank">
-          <button class="cssbuttons-io">
-            <span>
-              <svg viewBox="0 0 24 24">
-                <path d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path>
-              </svg>
-              Code
-            </span>
-          </button>
-        </a>
-      </div>
-    </div>
-
-    <!-- Project 3: FlapPyBird -->
-    <div class="row align-items-center mb-5">
-      <div class="col-md-6 mb-4 mb-md-0">
-        <img src="assets/img/flappy.png" class="img-fluid rounded shadow mb-4" alt="FlapPyBird">
-      </div>
-      <div class="col-md-6">
-        <h4>FlapPyBird with Gesture Control</h4>
-        <ul>
-          <li>A gesture-controlled version of the classic Flappy Bird game.</li>
-          <li>Players flap the bird by forming an “O” shape using the thumb and index finger.</li>
-          <li>Gesture detection powered by webcam input using computer vision.</li>
-          <li>Supports other interaction modes like blink and touch control.</li>
-          <li>Browser play enabled via PygBag.</li>
-        </ul>
-        <p><strong>Tech Stack:</strong> Python, Pygame, OpenCV, MediaPipe, PygBag</p>
-        <a href="https://github.com/memes-mami/FlapPyBird" target="_blank">
-          <button class="cssbuttons-io">
-            <span>
-              <svg viewBox="0 0 24 24">
-                <path d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path>
-              </svg>
-              Code
-            </span>
-          </button>
-        </a>
-      </div>
-    </div>
-
-    <!-- Project 4: Chatbot Portfolio -->
-    <div class="row align-items-center mb-5 flex-md-row-reverse">
-      <div class="col-md-6 mb-4 mb-md-0">
-        <img src="assets/img/chatbot.png" class="img-fluid rounded shadow mb-4" alt="Chatbot">
-      </div>
-      <div class="col-md-6">
-        <h4>Chatbot Portfolio</h4>
-        <ul>
-          <li>A personalized chatbot integrated into a developer portfolio website.</li>
-          <li>Works as a browser extension (tested with Brave, adaptable to others).</li>
-          <li>Processes user queries using a local LLM powered by <strong>Ollama</strong>.</li>
-          <li>Uses a data-driven Q&A system with smart query-response matching.</li>
-          <li>Responds to predefined questions related to skills, projects, and experience.</li>
-          <li>Improves recruiter interaction through a conversational interface.</li>
-        </ul>
-        <p><strong>Future Enhancements:</strong></p>
-        <ul>
-          <li>Support for speech-to-text queries and voice responses.</li>
-          <li>Dynamic retrieval from live project or resume data.</li>
-          <li>Integration with ATS or email parsing tools for job targeting.</li>
-        </ul>
-        <p><strong>Tech Stack:</strong> JavaScript, Pytorch, Web Applictions</p>
-        <a href="#" target="_blank">
-          <button class="cssbuttons-io">
-            <span>
-              <svg viewBox="0 0 24 24">
-                <path d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path>
-              </svg>
-              Code
-            </span>
-          </button>
-        </a>
-      </div>
-    </div>
-
-    <div class="text-center mt-4">
-      <button onclick="goBack()" class="back-button">
-        <i class="bi bi-arrow-left"></i> Back
-      </button>
-    </div>
-  </div>
-</section>
 
   </main>
 
