@@ -258,7 +258,7 @@ document.querySelectorAll('.skill-card').forEach(card => {
    */
   function showCustomSection(sectionId) {
     const defaultSections = ['hero', 'about', 'skills', 'resume', 'services', 'contact', 'stats','project-demos-section'];
-    const customSections = ['achievements-section', 'certifications-section'];
+    const customSections = ['achievements-section', 'certifications-section','career-timeline'];
     const footer = document.querySelector('footer');
 
     // Hide all sections and footer
@@ -280,7 +280,7 @@ document.querySelectorAll('.skill-card').forEach(card => {
    */
   window.goBack = function () {
     const defaultSections = ['hero', 'about', 'skills', 'resume', 'services', 'contact', 'stats','project-demos-section'];
-    const customSections = ['achievements-section', 'certifications-section'];
+    const customSections = ['achievements-section', 'certifications-section','career-timeline'];
     const footer = document.querySelector('footer');
 
     // Hide custom sections
@@ -356,3 +356,13 @@ document.querySelectorAll('.skill-card').forEach(card => {
       });
     });
   });
+
+$(function(){
+  $().timelinr({
+    orientation: 'horizontal', // 'vertical' for up/down arrows
+    issuesSpeed: 500,
+    datesSpeed: 120,
+    arrowKeys: 'true',
+    startAt: 1 // Start at the first item
+  });
+});
