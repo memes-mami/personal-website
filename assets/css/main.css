@@ -2594,3 +2594,172 @@ body.dark .skill-card .rating {
         margin-bottom: 10px;
       }
     }
+/* --- Career Timeline Section --- */
+#career-timeline {
+    padding: 80px 0;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Central vertical line */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: var(--accent-color, #149ddd);
+    opacity: 0.3;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.5px;
+    border-radius: 3px;
+}
+
+/* Each timeline item */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+/* Timeline dot */
+.timeline-dot {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 28px;
+    background-color: var(--background-color, #f1f1f1);
+    border: 4px solid var(--accent-color, #149ddd);
+    border-radius: 50%;
+    z-index: 2;
+    right: -9px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -9px;
+    right: auto;
+}
+
+/* Year label beside the dot */
+.timeline-date {
+    position: absolute;
+    top: 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--accent-color, #149ddd);
+    background-color: var(--background-color, #ffffff);
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 2;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+}
+
+.timeline-item:nth-child(odd) .timeline-date {
+    right: -100px;
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+    left: -100px;
+}
+
+/* Content box */
+.timeline-content {
+    padding: 20px 30px;
+    background-color: var(--surface-color, #fff);
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent-color, #149ddd);
+    transform: scale(1.2);
+}
+
+.timeline-content h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 5px;
+}
+
+.timeline-content h5 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--default-color);
+    opacity: 0.7;
+    margin-bottom: 15px;
+}
+
+.timeline-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--default-color);
+    margin: 0;
+}
+
+/* Responsive for mobile */
+@media screen and (max-width: 768px) {
+    .timeline-container::after {
+        left: 30px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+        left: 0 !important;
+        margin-bottom: 40px;
+    }
+
+    .timeline-dot {
+        left: 22px !important;
+        right: auto !important;
+        top: 28px;
+    }
+
+    .timeline-date {
+        top: 26px;
+        left: 55px !important;
+        right: auto !important;
+        font-size: 0.9rem;
+        padding: 2px 6px;
+        background-color: transparent;
+        color: var(--accent-color, #149ddd);
+        box-shadow: none;
+    }
+
+    .timeline-content {
+        padding: 18px 20px;
+    }
+}
+/* Hover effect for year popping */
+.timeline-item:hover .timeline-date {
+    transform: scale(1.69);
+    font-weight: 700;
+    background-color: var(--accent-color, #149ddd);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 5;
+}
