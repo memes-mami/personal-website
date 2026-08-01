@@ -1050,12 +1050,6 @@ body.dark .skill-card {
 .skill-card.cpp:hover { box-shadow: 0 0 20px #00599c, 0 0 40px #00599c; }
 .cpp::after { background: #00599c; }
 
-.skill-card.java:hover { box-shadow: 0 0 20px #5382a1, 0 0 40px #5382a1; }
-.java::after { background: #5382a1; }
-
-.skill-card.matlab:hover { box-shadow: 0 0 20px #ff5b00, 0 0 40px #ff5b00; }
-.matlab::after { background: #ff5b00; }
-
 .skill-card.html:hover { box-shadow: 0 0 20px #e34c26, 0 0 40px #e34c26; }
 .html::after { background: #e34c26; }
 
@@ -1091,6 +1085,12 @@ body.dark .skill-card {
 
 .skill-card.git:hover { box-shadow: 0 0 20px #f1502f, 0 0 40px #f1502f; }
 .git::after { background: #f1502f; }
+
+.skill-card.linux:hover { box-shadow: 0 0 20px #fcc624, 0 0 40px #fcc624; }
+.linux::after { background: #fcc624; }
+
+.skill-card.gcp:hover { box-shadow: 0 0 20px #4285f4, 0 0 40px #4285f4; }
+.gcp::after { background: #4285f4; }
 
 .skill-card.vscode:hover { box-shadow: 0 0 20px #007acc, 0 0 40px #007acc; }
 .vscode::after { background: #007acc; }
