@@ -79,6 +79,74 @@ html {
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
+  scroll-padding-top: 32px;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(20, 157, 221, 0.75) rgba(255, 255, 255, 0.08);
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.header::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+.header::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+.header::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(20,157,221,0.8), rgba(14,117,174,0.8));
+  border-radius: 999px;
+  border: 2px solid rgba(255,255,255,0.08);
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover,
+.header::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(20,157,221,1), rgba(14,117,174,1));
+}
+
+/* Keep section backgrounds steady during scroll so there is no flash or dark bar while new content loads. */
+.resume-item,
+.project-card,
+.service-item,
+.skill-card,
+.stats-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+
+.resume-item.is-visible,
+.project-card.is-visible,
+.service-item.is-visible,
+.skill-card.is-visible,
+.stats-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.resume-item,
+.project-card,
+.service-item,
+.skill-card,
+.stats-item {
+  will-change: transform, opacity;
 }
 
 /*--------------------------------------------------------------
@@ -86,8 +154,16 @@ html {
 --------------------------------------------------------------*/
 body {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background:
+    radial-gradient(circle at top left, rgba(20, 157, 221, 0.08), transparent 34%),
+    linear-gradient(180deg, rgba(255,255,255,0.06), transparent 100%),
+    var(--background-color);
   font-family: var(--default-font);
+}
+
+::selection {
+  background: rgba(20, 157, 221, 0.22);
+  color: var(--heading-color);
 }
 
 a {
@@ -109,6 +185,56 @@ h5,
 h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
+}
+
+.section {
+  position: relative;
+}
+
+.section-title {
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 70px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-color), rgba(20,157,221,0.12));
+}
+
+.section-title p {
+  max-width: 780px;
+  color: color-mix(in srgb, var(--default-color), transparent 18%);
+}
+
+.skill-card,
+.service-item,
+.project-card,
+.stats-item,
+.resume-item {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.skill-card:hover,
+.service-item:hover,
+.project-card:hover,
+.stats-item:hover,
+.resume-item:hover {
+  transform: translateY(-3px);
+  box-shadow: none;
 }
 
 /* PHP Email Form Messages
@@ -186,10 +312,23 @@ h6 {
 }
 
 .header .profile-img img {
-  margin: 15px auto;
+  margin: 15px auto 18px;
   display: block;
   width: 120px;
-  border: 8px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  height: 140px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 12px !important;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0;
+}
+
+.profile-portrait {
+  border-radius: 12px !important;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .header .logo {
@@ -306,8 +445,9 @@ h6 {
     display: flex;
     align-items: center;
     white-space: nowrap;
-    transition: 0.3s;
+    transition: color 0.28s ease, transform 0.28s ease, background-color 0.28s ease, padding-left 0.28s ease, box-shadow 0.28s ease;
     width: 100%;
+    border-radius: 10px;
   }
 
   .navmenu a .navicon,
@@ -339,14 +479,24 @@ h6 {
   }
 
   .navmenu a:hover,
+  .navmenu a:focus,
   .navmenu .active,
   .navmenu .active:focus {
-    color: var(--nav-hover-color);
+    color: var(--accent-color);
+    background: rgba(20, 157, 221, 0.08);
+    box-shadow: inset 0 0 0 1px rgba(20, 157, 221, 0.12);
+    transform: translateX(4px);
+    padding-left: 16px;
   }
 
   .navmenu a:hover .navicon,
+  .navmenu a:focus .navicon,
   .navmenu .active .navicon,
-  .navmenu .active:focus .navicon {
+  .navmenu .active:focus .navicon,
+  .navmenu a:hover span,
+  .navmenu a:focus span,
+  .navmenu .active span,
+  .navmenu .active:focus span {
     color: var(--accent-color);
   }
 
@@ -566,6 +716,13 @@ section,
   background-color: var(--background-color);
   padding: 60px 0;
   overflow: clip;
+}
+
+.section .container,
+.page-title .container,
+.main .container {
+  padding-left: 18px;
+  padding-right: 18px;
 }
 
 /*--------------------------------------------------------------
@@ -872,10 +1029,14 @@ a {
 /* Skills Grid Layout */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(5, minmax(140px, 1fr));
+  gap: 16px;
   justify-items: center;
+  align-items: start;
   margin-top: 40px;
+}
+.skills-grid .skill-card:nth-child(odd) {
+  margin-top: 24px;
 }
 .skill-card:active {
   transform: scale(0.97);
@@ -896,12 +1057,20 @@ body.dark .skills.section.light-background {
 /* Responsive fallback for tablets and phones */
 @media (max-width: 1200px) {
   .skills-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+  }
+  .skills-grid .skill-card:nth-child(odd) {
+    margin-top: 0;
   }
 }
 @media (max-width: 992px) {
   .skills-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
+  }
+}
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
   }
 }
 @media (max-width: 576px) {
@@ -925,8 +1094,8 @@ body.dark .skills.section.light-background {
 /* Skill Card Styling */
 .skill-card {
   position: relative;
-  width: 120px;
-  height: 150px;
+  width: 110px;
+  height: 140px;
   background: transparent;
   backdrop-filter: none;
   border-radius: 16px;
@@ -934,7 +1103,7 @@ body.dark .skills.section.light-background {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  padding: 6px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   text-align: center;
   box-shadow: none;
@@ -958,12 +1127,12 @@ body.dark .skill-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  padding: 6px;
 }
 
 .skill-card img {
-  width: 100%;
-  height: 100%;
+  width: 84%;
+  height: 84%;
   object-fit: contain;
   transition: transform 0.3s ease;
 }

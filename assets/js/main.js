@@ -110,6 +110,24 @@ if (preloader) {
   });
 }
 
+  /**
+   * Smooth reveal animation for sections and cards
+   */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -6% 0px'
+  });
+
+  document.querySelectorAll('.resume-item, .project-card, .service-item, .skill-card, .stats-item').forEach((element) => {
+    revealObserver.observe(element);
+  });
 
   /**
    * Scroll top button
@@ -257,8 +275,8 @@ document.querySelectorAll('.skill-card').forEach(card => {
    * Show custom section from "More" dropdown (e.g., achievements, certifications)
    */
   function showCustomSection(sectionId) {
-    const defaultSections = ['hero', 'about', 'skills', 'resume', 'services', 'contact', 'stats','project-demos-section'];
-    const customSections = ['achievements-section', 'certifications-section','career-timeline'];
+    const defaultSections = ['hero', 'about', 'skills', 'resume', 'services', 'contact', 'stats','project-demos-section','career-timeline-section'];
+    const customSections = ['achievements-section', 'certifications-section'];
     const footer = document.querySelector('footer');
 
     // Hide all sections and footer
@@ -279,8 +297,8 @@ document.querySelectorAll('.skill-card').forEach(card => {
    * Back button to return from custom section to main sections
    */
   window.goBack = function () {
-    const defaultSections = ['hero', 'about', 'skills', 'resume', 'services', 'contact', 'stats','project-demos-section'];
-    const customSections = ['achievements-section', 'certifications-section','career-timeline'];
+    const defaultSections = ['hero', 'about', 'skills', 'resume', 'services', 'contact', 'stats','project-demos-section','career-timeline-section'];
+    const customSections = ['achievements-section', 'certifications-section'];
     const footer = document.querySelector('footer');
 
     // Hide custom sections
