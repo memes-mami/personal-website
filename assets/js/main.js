@@ -46,6 +46,17 @@ if (window.innerWidth < 768) {
         headerToggle();
       }
 
+      // ✅ Immediately set clicked link as active so state updates without waiting for scroll
+      // But release this manual active state shortly so the scrollspy (hover) regains control.
+      document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
+      this.classList.add('active');
+      // Clear prior timer if any
+      window.__navActiveReleaseTimer && clearTimeout(window.__navActiveReleaseTimer);
+      window.__navActiveReleaseTimer = setTimeout(() => {
+        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
+        // let the IntersectionObserver set the correct active link on next visibility change
+      }, 300);
+
       // ✅ Scroll to the section after restoring view
       setTimeout(() => {
         targetEl.scrollIntoView({ behavior: 'smooth' });
@@ -336,22 +347,89 @@ document.querySelectorAll('.skill-card').forEach(card => {
   /* changes here*/
  let navmenulinks = document.querySelectorAll('.navmenu a');
 
-  function navmenuScrollspy() {
-    navmenulinks.forEach(navmenulink => {
-      if (!navmenulink.hash) return;
-      let section = document.querySelector(navmenulink.hash);
-      if (!section) return;
-      let position = window.scrollY + 200;
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
-        navmenulink.classList.add('active');
-      } else {
-        navmenulink.classList.remove('active');
+  // Robust scrollspy: prefer viewport-center detection (works reliably on small/tall sections and mobile)
+  (function setupIntersectionScrollspy() {
+    const sectionMap = new Map();
+    const sections = [];
+
+    navmenulinks.forEach(link => {
+      if (!link.hash) return;
+      const section = document.querySelector(link.hash);
+      if (section) {
+        sectionMap.set(section, link);
+        sections.push(section);
       }
-    })
-  }
-  window.addEventListener('load', navmenuScrollspy);
-  document.addEventListener('scroll', navmenuScrollspy);
+    });
+
+    if (!sections.length) return;
+
+    // Helper: set active link
+    function setActiveLink(link) {
+      if (!link) return;
+      document.querySelectorAll('.navmenu a.active').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    }
+
+    // Primary: viewport-center detection
+    function activeByViewportCenter() {
+      const centerY = window.innerHeight / 2;
+      let bestSection = null;
+      let bestDistance = Infinity;
+
+      sections.forEach(sec => {
+        // Skip hidden sections
+        if (getComputedStyle(sec).display === 'none') return;
+        const rect = sec.getBoundingClientRect();
+        // If center is inside this section, prefer it immediately
+        if (rect.top <= centerY && rect.bottom >= centerY) {
+          bestSection = sec;
+          bestDistance = 0;
+          return;
+        }
+        // Otherwise compute distance from center to section center
+        const secCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(secCenter - centerY);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestSection = sec;
+        }
+      });
+
+      if (bestSection) {
+        const link = sectionMap.get(bestSection);
+        if (link) setActiveLink(link);
+      }
+    }
+
+    // Debounce helper
+    let scrollTimer = null;
+    function debounceActive() {
+      if (scrollTimer) clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        activeByViewportCenter();
+      }, 80);
+    }
+
+    // Secondary: IntersectionObserver as a gentle fallback to catch quick jumps and hash loads
+    const observer = new IntersectionObserver((entries) => {
+      let best = null;
+      entries.forEach(entry => {
+        if (!best || entry.intersectionRatio > best.intersectionRatio) best = entry;
+      });
+      if (best && best.isIntersecting) {
+        const activeLink = sectionMap.get(best.target);
+        if (activeLink) setActiveLink(activeLink);
+      }
+    }, { threshold: [0, 0.25, 0.5, 0.75, 1], rootMargin: '0px 0px -10% 0px' });
+
+    sections.forEach(sec => observer.observe(sec));
+
+    // Run on load to set initial active
+    window.addEventListener('load', activeByViewportCenter);
+    // Update on scroll and resize
+    document.addEventListener('scroll', debounceActive, { passive: true });
+    window.addEventListener('resize', debounceActive);
+  })();
 
 })();
  document.addEventListener("DOMContentLoaded", function () {

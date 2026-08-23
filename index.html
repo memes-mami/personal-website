@@ -72,23 +72,20 @@
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i> Home</a></li>
         <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
         <li><a href="#skills"><i class="bi bi-bar-chart-line navicon"></i> Skills</a></li>
-
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
         <li><a href="#services"><i class="bi bi-briefcase navicon"></i> Services</a></li>
-        <li><a href="#project-demos-section"><i class="bi bi-sliders2 navicon"></i> Project </a></li>
+        <li><a href="#project-demos-section"><i class="bi bi-sliders2 navicon"></i> Projects</a></li>
         <li><a href="#career-timeline-section"><i class="bi bi-clock-history navicon"></i> Career Timeline</a></li>
-
-<li class="dropdown">
-  <a href="#"><i class="bi bi-award navicon"></i> <span>More</span> <i class="bi bi-chevron-down "></i></a>
-  <ul class="dropdown-menu">
-    <li><a href="#" data-section="achievements"><i class="bi bi-trophy"></i> Achievements</a></li>
-    <li><a href="#" data-section="certifications"><i class="bi bi-patch-check"></i> Certifications</a></li>
-  </ul>
-</li>
-
+        <li class="dropdown">
+          <a href="#"><i class="bi bi-award navicon"></i> <span>More</span> <i class="bi bi-chevron-down "></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="#achievements-section" data-section="achievements"><i class="bi bi-trophy"></i> Achievements</a></li>
+            <li><a href="#certifications-section" data-section="certifications"><i class="bi bi-patch-check"></i> Certifications</a></li>
+          </ul>
+        </li>
 
         <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
         <!-- Updated Theme Toggle Using Uiverse Style -->
@@ -286,6 +283,21 @@
 
 </section><!-- /Stats Section -->
 <!-- Skills Section -->
+<!-- Professional Highlights -->
+<section id="highlights" class="highlights section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Professional Highlights</h2>
+    <ul class="highlights-list">
+      <li>1+ years of experience in MLOps, cloud engineering, and Kubernetes ecosystems</li>
+      <li>Hands-on with Azure, GCP, Linux, Docker, and container orchestration</li>
+      <li>Experience in deployment automation, CI/CD pipelines, and container security</li>
+      <li>Strong foundation in AI/ML workflows and model deployment infrastructure</li>
+      <li>Worked with production-ready systems and operational reliability practices</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Skills Section -->
 <section id="skills" class="skills section" >
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
@@ -456,6 +468,47 @@
 
 </section><!-- /Resume Section -->
 
+    <!-- Services Section (relocated here) -->
+<section id="services" class="services section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Services</h2>
+    <p>Bringing intelligent, scalable, and secure solutions with expertise in machine learning, cloud computing, and system optimization.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+    <div class="row gy-4">
+
+      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon flex-shrink-0"><i class="bi bi-cpu"></i></div>
+        <div>
+          <h4 class="title"><a href="#" class="stretched-link">Machine Learning Solutions</a></h4>
+          <p class="description">Designing and deploying AI-driven systems using deep learning, computer vision, and NLP to solve real-world problems across research and product workflows.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
+        <div class="icon flex-shrink-0"><i class="bi bi-cloud-check"></i></div>
+        <div>
+          <h4 class="title"><a href="#" class="stretched-link">Cloud App Development</a></h4>
+          <p class="description">Building and deploying scalable applications across Azure, GCP, and cloud-native environments using Kubernetes, container orchestration, and automation-first workflows.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
+        <div class="icon flex-shrink-0"><i class="bi bi-shield-lock"></i></div>
+        <div>
+          <h4 class="title"><a href="#" class="stretched-link">Cybersecurity Learning & Research</a></h4>
+          <p class="description">Exploring secure system design and deployment practices to strengthen cloud infrastructure, container security, and resilient AI-driven applications.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+    </div>
+  </div>
+
+</section><!-- /Services Section -->
+
 <!-- Project Section -->
 <section id="project-demos-section" class="section py-5" style="background-color: #F1F1F1;">
 
@@ -472,14 +525,10 @@
       </div>
       <div class="col-md-6">
         <h4>RS Segmentation Toolbox</h4>
-        <ul>
-          <li>Developed a semantic segmentation pipeline for high-resolution satellite imagery.</li>
-          <li>Focused on extracting land-use patterns such as buildings, roads, vegetation, and water bodies.</li>
-          <li>Applied the workflow to domains including <strong>urban planning</strong>, <strong>agriculture monitoring</strong>, and <strong>disaster response</strong>.</li>
-          <li>Evaluated performance on benchmark datasets including Vaihingen, Potsdam, and LoveDA.</li>
-          <li>Integrated model explainability and visualization techniques for better interpretability.</li>
-        </ul>
-        <p><strong>Tech Stack:</strong> PyTorch, RepViT</p>
+        <p><strong>Problem:</strong> Large volumes of high-resolution satellite imagery make manual land-use mapping slow and error-prone, limiting planning and monitoring efforts.</p>
+        <p><strong>Solution / Role:</strong> Designed and implemented a semantic segmentation pipeline (data preprocessing, training, and inference), using PyTorch and RepViT, with visualization and evaluation tools to produce consistent land-cover maps.</p>
+        <p><strong>Result / Impact:</strong> Delivered accurate, consistent land-use maps that sped up mapping workflows and supported urban planning, agriculture monitoring, and disaster-response analyses.</p>
+        <p><strong>Tech Stack:</strong> PyTorch, RepViT, OpenCV</p>
         <a href="https://github.com/memes-mami/rssegmentation" target="_blank">
           <button class="cssbuttons-io">
             <span>
@@ -535,61 +584,21 @@
     </div>
   </div>
 
-    <!-- Project 3: FlapPyBird -->
-     <div class="project-card mb-5" data-aos="fade-up">
-    <div class="row align-items-center mb-5">
-      <div class="col-md-6 mb-4 mb-md-0">
-        <img src="assets/img/flappy.png" class="img-fluid rounded shadow mb-4" alt="FlapPyBird">
-      </div>
-      <div class="col-md-6">
-        <h4>FlapPyBird with Gesture Control</h4>
-        <ul>
-          <li>A gesture-controlled version of the classic Flappy Bird game.</li>
-          <li>Players flap the bird by forming an “O” shape using the thumb and index finger.</li>
-          <li>Gesture detection powered by webcam input using computer vision.</li>
-          <li>Supports other interaction modes like blink and touch control.</li>
-          <li>Browser play enabled via PygBag.</li>
-        </ul>
-        <p><strong>Tech Stack:</strong> Python, Pygame, OpenCV, MediaPipe, PygBag</p>
-        <a href="https://github.com/memes-mami/FlapPyBird" target="_blank">
-          <button class="cssbuttons-io">
-            <span>
-              <svg viewBox="0 0 24 24">
-                <path d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path>
-              </svg>
-              Code
-            </span>
-          </button>
-        </a>
-      </div>
-    </div>
-    </div>
+    <!-- FlapPyBird project removed per request -->
 
 
-    <!-- Project 4: Chatbot Portfolio -->
+    <!-- Project 4: Chatbot for Students -->
      <div class="project-card mb-5" data-aos="fade-up">
     <div class="row align-items-center mb-5 flex-md-row-reverse">
       <div class="col-md-6 mb-4 mb-md-0">
         <img src="assets/img/chatbot.png" class="img-fluid rounded shadow mb-4" alt="Chatbot">
       </div>
       <div class="col-md-6">
-        <h4>Chatbot Portfolio</h4>
-        <ul>
-          <li>A personalized chatbot integrated into a developer portfolio website.</li>
-          <li>Works as a browser extension (tested with Brave, adaptable to others).</li>
-          <li>Processes user queries using a local LLM powered by <strong>Ollama</strong>.</li>
-          <li>Uses a data-driven Q&A system with smart query-response matching.</li>
-          <li>Responds to predefined questions related to skills, projects, and experience.</li>
-          <li>Improves recruiter interaction through a conversational interface.</li>
-        </ul>
-        <p><strong>Future Enhancements:</strong></p>
-        <ul>
-          <li>Support for speech-to-text queries and voice responses.</li>
-          <li>Dynamic retrieval from live project or resume data.</li>
-          <li>Integration with ATS or email parsing tools for job targeting.</li>
-        </ul>
-        <p><strong>Tech Stack:</strong> JavaScript, Pytorch, Web Applictions</p>
+        <h4>Chatbot for Students</h4>
+        <p><strong>Problem:</strong> Students and visitors need fast, contextual answers about projects, skills, and resources within the portfolio.</p>
+        <p><strong>Solution / Role:</strong> Built a lightweight Flask backend and browser-integrated interface that routes user queries to a local LLM and a document-based retrieval layer. I implemented the backend endpoints, query handling, and UI integration.</p>
+        <p><strong>Result / Impact:</strong> Provides quick, accurate responses to common academic queries and improves site engagement with a conversational interface.</p>
+        <p><strong>Tech Stack:</strong> Flask, PyTorch, JavaScript</p>
         <a href="#" target="_blank">
           <button class="cssbuttons-io">
             <span>
@@ -605,87 +614,12 @@
     </div>
 </div>
 
-<!--face recognition project(still under sonstruction proecjt so update in later time)-->
-<div class="project-card mb-5" data-aos="fade-up">
-  <div class="row align-items-center mb-5">
-    <div class="col-md-6 mb-4 mb-md-0">
-      <img src="assets/img/facerec.png" class="img-fluid rounded shadow mb-4" alt="Face Recognition">
-    </div>
-    <div class="col-md-6">
-      <h4>Face Recognition from Camera</h4>
-      <ul>
-        <li>Real-time multi-face recognition using <strong>YOLO-NAS-M</strong> and <strong>ArcFace</strong>.</li>
-        <li>Supports both webcam and video-based detection and attendance logging.</li>
-        <li>Interactive Streamlit GUI with registration and live detection modes.</li>
-        <li>Stores recognition logs in `.txt` and supports log summarization via <strong>LLMs</strong>.</li>
-        <li>Includes standalone CLI utilities for registration and identity testing.</li>
-      </ul>
-      <p><strong>Future Enhancements:</strong></p>
-      <ul>
-        <li>Voice-based registration commands and feedback.</li>
-        <li>Face clustering and unknown face alerts.</li>
-        <li>Mobile deployment support via ONNX or TensorRT.</li>
-      </ul>
-      <p><strong>Tech Stack:</strong> Python, Streamlit, Torch (YOLO-NAS), InsightFace</p>
-      <a href="#" target="_blank">
-        <button class="cssbuttons-io">
-          <span>
-            <svg viewBox="0 0 24 24">
-              <path d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path>
-            </svg>
-            Code
-          </span>
-        </button>
-      </a>
-    </div>
-  </div>
 </div>
-
 </div>
   
 </section>
 
-    <!-- Services Section -->
-<section id="services" class="services section">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Services</h2>
-    <p>Bringing intelligent, scalable, and secure solutions with expertise in machine learning, cloud computing, and system optimization.</p>
-  </div><!-- End Section Title -->
-
-  <div class="container">
-    <div class="row gy-4">
-
-      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-        <div class="icon flex-shrink-0"><i class="bi bi-cpu"></i></div>
-        <div>
-          <h4 class="title"><a href="#" class="stretched-link">Machine Learning Solutions</a></h4>
-          <p class="description">Designing and deploying AI-driven systems using deep learning, computer vision, and NLP to solve real-world problems across research and product workflows.</p>
-        </div>
-      </div><!-- End Service Item -->
-
-      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-        <div class="icon flex-shrink-0"><i class="bi bi-cloud-check"></i></div>
-        <div>
-          <h4 class="title"><a href="#" class="stretched-link">Cloud App Development</a></h4>
-          <p class="description">Building and deploying scalable applications across Azure, GCP, and cloud-native environments using Kubernetes, container orchestration, and automation-first workflows.</p>
-        </div>
-      </div><!-- End Service Item -->
-
-      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-        <div class="icon flex-shrink-0"><i class="bi bi-shield-lock"></i></div>
-        <div>
-          <h4 class="title"><a href="#" class="stretched-link">Cybersecurity Learning & Research</a></h4>
-          <p class="description">Exploring secure system design and deployment practices to strengthen cloud infrastructure, container security, and resilient AI-driven applications.</p>
-        </div>
-      </div><!-- End Service Item -->
-
-    </div>
-  </div>
-
-</section><!-- /Services Section -->
+    <!-- Services Section (moved after Resume) -->
 
 <section id="career-timeline-section" class="section" style="display: block">
   <div class="container">
@@ -706,14 +640,7 @@
         </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">June 2025</div>
-        <div class="timeline-content">
-          <h4>Project: Facial Recognition from Camera</h4>
-          <p>Real-time face recognition system using YOLO-NAS-M & ArcFace with interactive Streamlit GUI.</p>
-        </div>
-      </div>
+      
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
@@ -760,14 +687,7 @@
         </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">Jul 2024</div>
-        <div class="timeline-content">
-          <h4>Project: FlapPyBird with Gesture Control</h4>
-          <p>Gesture-based Flappy Bird clone using OpenCV & MediaPipe with 90%+ accuracy.</p>
-        </div>
-      </div>
+      <!-- Removed FlapPyBird timeline item to prevent misalignment -->
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
@@ -791,8 +711,8 @@
         <div class="timeline-dot"></div>
         <div class="timeline-date">Apr 2024</div>
         <div class="timeline-content">
-          <h4>Project: Chat Bot for Students</h4>
-          <p>Flask + PyTorch chatbot for academic query resolution with NLP and speech recognition.</p>
+          <h4>Project: Chatbot for Students</h4>
+          <p>Built a Flask-backed conversational assistant with document retrieval and a local LLM to answer academic queries, improving user engagement and access to portfolio information.</p>
         </div>
       </div>
 
